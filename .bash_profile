@@ -4,6 +4,7 @@ alias grd='guard --no-interactions'
 #Folder Nav
 alias ..='cd ..'
 alias Sites='cd ~/Sites'
+alias Config='cd ~/Configuration-Files'
 
 #Git
 alias fetch='git fetch'
