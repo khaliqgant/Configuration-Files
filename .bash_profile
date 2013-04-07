@@ -9,6 +9,7 @@ alias Config='cd ~/Configuration-Files'
 #Git
 alias fetch='git fetch'
 alias gl='git log --oneline --abbrev-commit --all --graph --decorate --color'
+alias gc='git commit -m'
 
 #Vim
 alias vim='open -a Macvim'
