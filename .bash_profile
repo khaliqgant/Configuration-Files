@@ -8,9 +8,10 @@ alias Config='cd ~/Configuration-Files'
 
 #Git
 alias fetch='git fetch'
-alias gl='git log --oneline --abbrev-commit --all --graph --decorate --color'
+alias log='git log --oneline --abbrev-commit --all --graph --decorate --color'
 alias gc='git commit -m'
 alias push='git push origin'
+alias pull='git pull origin'
 alias status='git status'
 
 #Vim
