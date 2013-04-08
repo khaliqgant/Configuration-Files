@@ -3,7 +3,7 @@ alias grd='guard --no-interactions'
 
 #Folder Nav
 alias ..='cd ..'
-alias …='cd ../..'
+alias ...='cd ../..'
 alias Sites='cd ~/Sites'
 alias Config='cd ~/Configuration-Files'
 
