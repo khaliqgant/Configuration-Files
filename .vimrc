@@ -14,6 +14,13 @@ filetype plugin indent on
 "Show partial commands in the last line of the screen
 set showcmd
 
+" Vim Interface
+set showmatch                   " Show matching brackets/parenthesis
+set incsearch                   " Find as you type search
+set hlsearch                    " Highlight search terms
+set winminheight=0              " Windows can be 0 line high
+set ignorecase                  " Case insensitive search
+
 " Instead of failing a command because of unsaved changes, instead raise a
 " dialogue asking if you wish to save changed files.
 set confirm
