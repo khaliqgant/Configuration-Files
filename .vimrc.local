@@ -1,0 +1,14 @@
+" KJG's Custom
+nnoremap <F5> :NumbersToggle<CR>
+
+" Escape key remappings
+inoremap jj <Esc>
+
+" Relative and Absolute Numbers
+set relativenumber
+set number
+
+" Sparkup Settings
+let g:sparkupExecuteMapping = '<c-l>'
+"
+
