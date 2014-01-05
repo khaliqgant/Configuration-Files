@@ -10,5 +10,4 @@ set number
 
 " Sparkup Settings
 let g:sparkupExecuteMapping = '<c-l>'
-"
 

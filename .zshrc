@@ -48,8 +48,16 @@ alias bg='bundle exec guard'
 #Folder Nav
 alias ..='cd ..'
 alias ...='cd ../..'
-alias Sites='cd ~/Sites'
-alias Config='cd ~/Configuration-Files'
+alias sites='cd ~/Sites'
+alias config='cd ~/Configuration-Files'
+alias spf=' cd ~/.spf13-vim-3/'
+alias home=$HOME
+
+#Open Config Files
+alias ssh-config='open -a Macvim ~/.ssh/config'
+alias .zshrc='open -a Macvim ~/.zshrc'
+alias .vimrc='open -a Macvim ~/.vimrc.local'
+
 
 #Git
 alias fetch='git fetch'
