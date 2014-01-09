@@ -57,6 +57,7 @@ alias home=$HOME
 alias ssh-config='open -a Macvim ~/.ssh/config'
 alias .zshrc='open -a Macvim ~/.zshrc'
 alias .vimrc='open -a Macvim ~/.vimrc.local'
+alias spf-vimrc='open -a Macvim ~/.spf13-vim-3/.vimrc'
 
 
 #Git
