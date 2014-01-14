@@ -68,6 +68,7 @@ alias push='git push origin'
 alias pull='git pull origin'
 alias status='git status'
 alias co='git checkout'
+alias clean='git clean -f'
 
 #Vim
 alias vim='open -a Macvim'
