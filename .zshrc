@@ -79,3 +79,7 @@ export PATH=/usr/local/share/npm/bin:$PATH #Setting to use Grunt
 # MySQL
 alias mysql="/Applications/MAMP/Library/bin/mysql"
 alias mysqldump="/Applications/MAMP/Library/bin/mysqldump"
+
+# Terminal Settings
+bindkey -M viins 'jj' vi-cmd-mode
+bindkey -v
