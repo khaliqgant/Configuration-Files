@@ -11,3 +11,6 @@ set number
 " Sparkup Settings
 let g:sparkupExecuteMapping = '<c-l>'
 
+" Emmet Settings
+let g:user_emmet_leader_key='<c-z>'
+
