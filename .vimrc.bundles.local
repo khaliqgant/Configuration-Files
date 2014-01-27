@@ -2,4 +2,5 @@
 Bundle 'shutnik/jshint2.vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'mattn/emmet-vim'
 
