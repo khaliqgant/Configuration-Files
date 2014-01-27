@@ -11,3 +11,4 @@ set number
 " Sparkup Settings
 let g:sparkupExecuteMapping = '<c-l>'
 
+let g:EditorConfig_core_mode = 'external_command'
