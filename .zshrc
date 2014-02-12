@@ -32,7 +32,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(osx git bower jira npm terminalapp web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,3 +86,15 @@ alias mysqldump="/Applications/MAMP/Library/bin/mysqldump"
 # Terminal Settings
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -v
+
+# Set autoresume
+if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
+  function chpwd {
+    local SEARCH=' '
+    local REPLACE='%20'
+    local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
+    printf '\e]7;%s\a' "$PWD_URL"
+  }
+
+  chpwd
+}
