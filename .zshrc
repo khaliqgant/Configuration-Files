@@ -7,6 +7,9 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+# Get ride of annoying prompt to upgrade, just do it!
+DISABLE_UPDATE_PROMPT=true
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
