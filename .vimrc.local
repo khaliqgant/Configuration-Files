@@ -11,6 +11,7 @@ set number
 " Sparkup Settings
 let g:sparkupExecuteMapping = '<c-l>'
 
+" Attempt to get EditorConfig to load, taken from https://github.com/editorconfig/editorconfig/issues/132
 let g:EditorConfig_core_mode = 'external_command'
 " Emmet Settings
 let g:user_emmet_leader_key='<c-z>'
