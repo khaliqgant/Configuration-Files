@@ -42,6 +42,10 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 [[ -s /etc/profile.d/autojump.sh ]] && . /etc/profile.d/autojump.sh
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+# item for eecli
+export PATH=~/.composer/vendor/bin:$PATH
 
 # KJG's Customization
 #Dev
@@ -74,6 +78,7 @@ alias pull='git pull origin'
 alias status='git status'
 alias co='git checkout'
 alias clean='git clean -f'
+#alias branched = "echo -e '\nMerged Branches ----------' && git branch --merged && echo -e '\nUnmerged Branches --------' && git branch --no-merged"
 
 #Vim
 alias vim='open -a Macvim'
@@ -101,3 +106,5 @@ if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
 
   chpwd
 }
+
+
