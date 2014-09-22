@@ -11,8 +11,11 @@ set number
 " Sparkup Settings
 let g:sparkupExecuteMapping = '<c-l>'
 
-" Attempt to get EditorConfig to load, taken from https://github.com/editorconfig/editorconfig/issues/132
-let g:EditorConfig_core_mode = 'external_command'
+" Attempt to get EditorConfig to load, reference: https://github.com/editorconfig/editorconfig/issues/132
+if count(g:spf13_bundle_groups, 'editorconfig-vim')
+    let g:EditorConfig_core_mode = 'external_command'
+    let g:EditorConfig_verbose = 1
+endif
 " Emmet Settings
 let g:user_emmet_leader_key='<c-z>'
 
