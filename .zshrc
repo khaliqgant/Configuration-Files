@@ -68,6 +68,11 @@ alias .bundles='open -a Macvim ~/.vimrc.bundles.local'
 alias spf-vimrc='open -a Macvim ~/.spf13-vim-3/.vimrc'
 alias vim-bundle='cd ~/.spf13-vim-3/.vim/bundle'
 
+#Deploy
+alias deploy:staging='(cd $(dirname $(find . -name Envoy.blade.php)) && envoy run deploy:staging)'
+alias deploy:production='(cd $(dirname $(find . -name Envoy.blade.php)) && envoy run deploy:production)'
+alias big:gulp='(cd $(dirname $(find . -name gulpfile.js)) && gulp)'
+
 
 #Git
 alias fetch='git fetch'
