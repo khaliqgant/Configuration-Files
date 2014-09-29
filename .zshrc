@@ -84,6 +84,7 @@ alias pull='git pull origin'
 alias status='git status'
 alias co='git checkout'
 alias clean='git clean -f'
+alias stash='git stash'
 #alias branched = "echo -e '\nMerged Branches ----------' && git branch --merged && echo -e '\nUnmerged Branches --------' && git branch --no-merged"
 
 #Vim
