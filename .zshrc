@@ -71,7 +71,7 @@ alias vim-bundle='cd ~/.spf13-vim-3/.vim/bundle'
 #Deploy
 alias deploy:staging='(cd $(dirname $(find . -name Envoy.blade.php)) && envoy run deploy:staging)'
 alias deploy:production='(cd $(dirname $(find . -name Envoy.blade.php)) && envoy run deploy:production)'
-alias big:gulp='(cd $(dirname $(find . -name gulpfile.js)) && gulp)'
+alias big:gulp='(cd $(dirname $(find . -maxdepth 2 -name gulpfile.js)) && gulp)'
 
 
 #Git
