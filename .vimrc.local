@@ -19,3 +19,9 @@ endif
 " Emmet Settings
 let g:user_emmet_leader_key='<c-z>'
 
+" Allow ejs files to be read as html
+" ref: http://stackoverflow.com/questions/4597721/syntax-highlight-for-ejs-files-in-vim
+set au BufNewFile,BufRead *.ejs set filetype=html
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
