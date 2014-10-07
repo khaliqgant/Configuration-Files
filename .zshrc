@@ -73,6 +73,11 @@ alias deploy:staging='(cd $(dirname $(find . -name Envoy.blade.php)) && envoy ru
 alias deploy:production='(cd $(dirname $(find . -name Envoy.blade.php)) && envoy run deploy:production)'
 alias big:gulp='(cd $(dirname $(find . -maxdepth 2 -name gulpfile.js)) && gulp)'
 alias gulp:watch='(cd $(dirname $(find . -maxdepth 2 -name gulpfile.js)) && gulp watch)'
+alias bower:install='(cd $(dirname $(find . -maxdepth 2 -name bower.json)) && bower install)'
+alias bower:update='(cd $(dirname $(find . -maxdepth 2 -name bower.json)) && bower update)'
+
+#ExpressionEngine
+alias eecli='vendor/bin/eecli'
 
 
 #Git
@@ -83,8 +88,9 @@ alias push='git push origin'
 alias pull='git pull origin'
 alias status='git status'
 alias co='git checkout'
-alias clean='git clean -f'
+alias clean='git clean -f -d'
 alias stash='git stash'
+alias pop='git stash pop'
 #alias branched = "echo -e '\nMerged Branches ----------' && git branch --merged && echo -e '\nUnmerged Branches --------' && git branch --no-merged"
 
 #Vim
