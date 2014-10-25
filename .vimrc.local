@@ -29,11 +29,8 @@ let g:user_emmet_leader_key='<c-z>'
 
 " Allow ejs files to be read as html
 " ref: http://stackoverflow.com/questions/4597721/syntax-highlight-for-ejs-files-in-vim
-set au BufNewFile,BufRead *.ejs set filetype=html
+"set au BufNewFile,BufRead *.ejs set filetype=html
 
-" Highlight lines over 80 characters HT http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
 " Change for set columb color
 if exists('+colorcolumn')
   set colorcolumn=80
