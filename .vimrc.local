@@ -4,6 +4,9 @@ nnoremap <F5> :NumbersToggle<CR>
 " Escape key remappings
 inoremap jj <Esc>
 
+" Fix syntax highlighting when scrolling too fast
+noremap <F6> <Esc>:syntax sync fromstart<CR>
+inoremap <F6> <C-o>:syntax sync fromstart<CR>
 " Relative and Absolute Numbers
 set relativenumber
 set number
