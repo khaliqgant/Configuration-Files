@@ -45,3 +45,6 @@ augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
   autocmd BufEnter * match OverLength /\%80v.*/
 augroup END
+
+" Set syntax highlighting for scala
+autocmd BufRead,BufNewFile *.scala set filetype=scala
