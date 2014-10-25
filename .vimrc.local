@@ -7,6 +7,11 @@ inoremap jj <Esc>
 " Fix syntax highlighting when scrolling too fast
 noremap <F6> <Esc>:syntax sync fromstart<CR>
 inoremap <F6> <C-o>:syntax sync fromstart<CR>
+
+" Reload EditorConfig
+noremap <F13> <Esc>:EditorConfigReload<CR>
+inoremap <F13> <C-o>:EditorConfigReload<CR>
+
 " Relative and Absolute Numbers
 set relativenumber
 set number
