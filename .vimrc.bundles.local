@@ -4,4 +4,5 @@ Bundle 'myusuf3/numbers.vim'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'derekwyatt/vim-scala'
-
+Bundle 'airblade/vim-gitgutter'
+Bundle 'bling/vim-airline'
