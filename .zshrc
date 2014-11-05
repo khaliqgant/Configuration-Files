@@ -122,4 +122,10 @@ if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
   chpwd
 }
 
+# Add in tree command
+if [ -z "\${which tree}" ]; then
+    tree () {
+        find $@ -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+    }
+
 
