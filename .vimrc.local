@@ -16,6 +16,9 @@ inoremap <F13> <C-o>:EditorConfigReload<CR>
 set relativenumber
 set number
 
+" Set fold level
+set nofoldenable
+
 " Sparkup Settings
 let g:sparkupExecuteMapping = '<c-l>'
 
@@ -31,7 +34,7 @@ let g:user_emmet_leader_key='<c-z>'
 " ref: http://stackoverflow.com/questions/4597721/syntax-highlight-for-ejs-files-in-vim
 "set au BufNewFile,BufRead *.ejs set filetype=html
 
-" Change for set columb color
+" Change for set column color
 if exists('+colorcolumn')
   set colorcolumn=80
 else
