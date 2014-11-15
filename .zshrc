@@ -57,6 +57,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias sites='cd ~/Sites'
 alias config='cd ~/Configuration-Files'
+alias Sites='cd ~/Sites'
+alias Config='cd ~/Configuration-Files'
 alias spf=' cd ~/.spf13-vim-3/'
 alias home=$HOME
 
