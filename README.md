@@ -5,6 +5,10 @@ My Configuration Files
 ```
 ln -s ~/Configuration-Files/.vimrc.bundles.local ~/
 ```
+- If doing a new set up quickly symlink everything by
+```
+ln -s .* ~/
+```
 
 My Configuration Files
 --------
