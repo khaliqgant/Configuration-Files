@@ -93,7 +93,7 @@ alias co='git checkout'
 alias clean='git clean -f -d'
 alias stash='git stash'
 alias pop='git stash pop'
-#alias branched = "echo -e '\nMerged Branches ----------' && git branch --merged && echo -e '\nUnmerged Branches --------' && git branch --no-merged"
+alias new='git checkout -b'
 
 #Vim
 alias vim='open -a Macvim'
