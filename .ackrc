@@ -1,0 +1,12 @@
+#ack http://betterthangrep.com/
+
+# Always color, even if piping to a another program
+--color
+
+#ignore certain directories
+--ignore-dir=.idea/
+--ignore-dir=node_modules/
+
+# Sort the files
+--sort-files
+
