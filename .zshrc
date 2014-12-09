@@ -94,6 +94,7 @@ alias clean='git clean -f -d'
 alias stash='git stash'
 alias pop='git stash pop'
 alias new='git checkout -b'
+alias reset='git reset --hard origin/master'
 
 #Vim
 alias vim='open -a Macvim'
