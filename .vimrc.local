@@ -30,6 +30,9 @@ endif
 " Emmet Settings
 let g:user_emmet_leader_key='<c-z>'
 
+" Vim Instant Markdown (https://github.com/suan/vim-instant-markdown)
+let g:instant_markdown_autostart = 0
+
 " Allow ejs files to be read as html
 " ref: http://stackoverflow.com/questions/4597721/syntax-highlight-for-ejs-files-in-vim
 "set au BufNewFile,BufRead *.ejs set filetype=html
