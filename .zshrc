@@ -81,6 +81,9 @@ alias bower:update='(cd $(dirname $(find . -maxdepth 2 -name bower.json)) && bow
 #ExpressionEngine
 alias eecli='vendor/bin/eecli'
 
+#Go
+export GOPATH=/Users/khaliq/Sites/go
+export PATH=$PATH:$GOPATH/bin
 
 #Git
 alias fetch='git fetch'
