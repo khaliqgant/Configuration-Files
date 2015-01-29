@@ -23,6 +23,15 @@ ln -s .* ~/
         ```
     3. In my instance, I had brew unlink cmake and reinstall via brew
     4. Also to quiet the python quitting error, had to brew unlink python as wel
+* Using [homebrew-brewdler](https://github.com/Homebrew/homebrew-brewdler) 
+to manage homebrew depdencies with a Brewfile. To install brewdler run
+```
+brew tap Homebrew/brewdler
+```
+* To install homebrew depdencies navigate to this config repo and run
+```
+brew brewdle
+```
 
 Executables
 ---------
