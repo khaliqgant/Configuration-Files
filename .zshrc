@@ -102,6 +102,11 @@ alias reset='git reset --hard origin/master'
 #Vim
 alias vim='open -a Macvim'
 
+# Docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/khaliq/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=/Applications/MAMP/bin/php/php5.4.4/bin:$PATH #MAMP PHI setting for Composer
 export PATH=/usr/local/share/npm/bin:$PATH #Setting to use Grunt
