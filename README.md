@@ -32,6 +32,7 @@ brew tap Homebrew/brewdler
 ```
 brew brewdle
 ```
+* Might want to move to [homebrew-file](https://github.com/rcmdnk/homebrew-file) instead
 * To run latex manipulations download [mactext](http://www.tug.org/mactex/index.html)
 
 Executables
