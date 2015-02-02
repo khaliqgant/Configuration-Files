@@ -32,6 +32,7 @@ brew tap Homebrew/brewdler
 ```
 brew brewdle
 ```
+* To run latex manipulations download [mactext](http://www.tug.org/mactex/index.html)
 
 Executables
 ---------
