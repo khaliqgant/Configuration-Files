@@ -1,11 +1,14 @@
-#ack http://betterthangrep.com/
+# ack http://betterthangrep.com/
 
 # Always color, even if piping to a another program
 --color
 
-#ignore certain directories
+# ignore certain directories
 --ignore-dir=.idea/
 --ignore-dir=node_modules/
+
+# ignore certain files
+--ignore-file=match:.sql
 
 # Sort the files
 --sort-files
