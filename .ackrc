@@ -6,6 +6,7 @@
 # ignore certain directories
 --ignore-dir=.idea/
 --ignore-dir=node_modules/
+--ignore-dir=cache/
 
 # ignore certain files
 --ignore-file=match:.sql
