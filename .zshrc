@@ -95,6 +95,7 @@ alias status='git status'
 alias co='git checkout'
 alias clean='git clean -f -d'
 alias stash='git stash'
+alias stash:list='git stash list --date=local'
 alias pop='git stash pop'
 alias new='git checkout -b'
 alias reset='git reset --hard origin/master'
@@ -103,6 +104,7 @@ alias reset='git reset --hard origin/master'
 alias vim='open -a Macvim'
 
 # Docker
+alias es-local='sites && cd es-docker && boot2docker up && docker start es'
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/khaliq/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
