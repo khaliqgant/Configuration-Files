@@ -14,3 +14,8 @@
 # Sort the files
 --sort-files
 
+# recognize .coffee files (http://effectif.com/coffeescript/using-ack-with-coffeescript)
+--type-add
+js=.coffee
+--type-set
+coffee=.coffee
