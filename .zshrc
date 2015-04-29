@@ -105,6 +105,7 @@ alias vim='open -a Macvim'
 
 # Docker
 alias es-local='sites && cd es-docker && boot2docker up && docker start es'
+alias es-local:stop='sites && cd es-docker && docker stop es && boot2docker stop'
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/khaliq/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
