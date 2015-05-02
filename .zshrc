@@ -55,12 +55,20 @@ alias bg='bundle exec guard'
 #Folder Nav
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
 alias sites='cd ~/Sites'
 alias config='cd ~/Configuration-Files'
 alias Sites='cd ~/Sites'
 alias Config='cd ~/Configuration-Files'
 alias spf=' cd ~/.spf13-vim-3/'
 alias home=$HOME
+
+# quickly find files and directory
+alias ff='find . -type f -name'
+alias fd='find . -type d -name'
+
+# copy the current working directory to the clipboard
+alias cpwd='pwd | xclip -selection clipboard'
 
 #Open Config Files
 alias ssh-config='open -a Macvim ~/.ssh/config'
@@ -99,6 +107,7 @@ alias stash:list='git stash list --date=local'
 alias pop='git stash pop'
 alias new='git checkout -b'
 alias reset='git reset --hard origin/master'
+alias root='cd "`git rev-parse --show-toplevel`"'
 
 #Vim
 alias vim='open -a Macvim'
@@ -122,6 +131,16 @@ export PATH=/usr/local/share/python:$PATH #add python path
 # MySQL
 alias mysql="/Applications/MAMP/Library/bin/mysql"
 alias mysqldump="/Applications/MAMP/Library/bin/mysqldump"
+
+# Java
+# shortcut for compiling and running Java programs
+function ja {
+    filename="${1%.*}"
+    javac $filename.java
+    if [[ $? == 0 ]]; then
+       java $filename
+    fi
+}
 
 # Terminal Settings
 bindkey -M viins 'jj' vi-cmd-mode
