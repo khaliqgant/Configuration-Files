@@ -142,6 +142,16 @@ function ja {
     fi
 }
 
+# Latex
+# shortcut to compile and open a pdf created from latex
+function pdf {
+    filename="${1%.*}"
+    pdflatex $filename.latex
+    if [[ $? == 0 ]]; then
+       open $filename.pdf
+    fi
+}
+
 # Terminal Settings
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -v
