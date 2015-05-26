@@ -139,4 +139,5 @@ alias mysqldump="/Applications/MAMP/Library/bin/mysqldump"
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -v
 
+# Load in some custom function aliases
 source "functions.zsh"
