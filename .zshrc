@@ -35,7 +35,7 @@ DISABLE_UPDATE_PROMPT=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx git bower jira npm terminalapp web-search)
+plugins=(osx git bower jira npm terminalapp web-search zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,12 +101,14 @@ alias push='git push origin'
 alias pull='git pull origin'
 alias status='git status'
 alias co='git checkout'
+# reference : http://git-scm.com/docs/git-clean
 alias clean='git clean -f -d'
 alias stash='git stash'
 alias stash:list='git stash list --date=local'
 alias pop='git stash pop'
 alias new='git checkout -b'
 alias reset='git reset --hard origin/master'
+# take you to the top of the git repo
 alias root='cd "`git rev-parse --show-toplevel`"'
 
 #Vim
