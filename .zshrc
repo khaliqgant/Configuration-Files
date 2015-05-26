@@ -140,4 +140,4 @@ bindkey -M viins 'jj' vi-cmd-mode
 bindkey -v
 
 # Load in some custom function aliases
-source "functions.zsh"
+source "/Users/khaliq/Configuration-Files/functions.zsh"
