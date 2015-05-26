@@ -35,7 +35,8 @@ DISABLE_UPDATE_PROMPT=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx git bower jira npm terminalapp web-search zsh-syntax-highlighting)
+plugins=(osx git bower jira npm terminalapp web-search zsh-syntax-highlighting 
+git-extras)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -134,66 +135,8 @@ export PATH=/usr/local/share/python:$PATH #add python path
 alias mysql="/Applications/MAMP/Library/bin/mysql"
 alias mysqldump="/Applications/MAMP/Library/bin/mysqldump"
 
-# Java
-# shortcut for compiling and running Java programs
-function ja {
-    filename="${1%.*}"
-    javac $filename.java
-    if [[ $? == 0 ]]; then
-       java $filename
-    fi
-}
-
-# Latex
-# shortcut to compile and open a pdf created from latex
-function pdf {
-    filename="${1%.*}"
-    pdflatex $filename.latex
-    if [[ $? == 0 ]]; then
-       open $filename.pdf
-    fi
-}
-
-# open up a new tab
-# source: https://gist.github.com/bobthecow/757788
-function tab () {
-    local cmd=""
-    local cdto="$PWD"
-    local args="$@"
- 
-    if [ -d "$1" ]; then
-        cdto=`cd "$1"; pwd`
-        args="${@:2}"
-    fi
- 
-    if [ -n "$args" ]; then
-        cmd="; $args"
-    fi
- 
-    osascript &>/dev/null <<EOF
-        tell application "iTerm"
-            tell current terminal
-                launch session "Default Session"
-                tell the last session
-                    write text "cd \"$cdto\"$cmd"
-                end tell
-            end tell
-        end tell
-EOF
-}
-
 # Terminal Settings
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -v
 
-# Set autoresume
-if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
-  function chpwd {
-    local SEARCH=' '
-    local REPLACE='%20'
-    local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
-    printf '\e]7;%s\a' "$PWD_URL"
-  }
-
-  chpwd
-}
+source "functions.zsh"
