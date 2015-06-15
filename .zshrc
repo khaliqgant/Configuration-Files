@@ -111,6 +111,9 @@ alias new='git checkout -b'
 alias reset='git reset --hard origin/master'
 # take you to the top of the git repo
 alias root='cd "`git rev-parse --show-toplevel`"'
+# zsh got rid of these commands with this PR https://github.com/robbyrussell/oh-my-zsh/pull/2790
+alias ggpush='ggp'
+alias ggpull='ggl'
 
 #Vim
 alias vim='open -a Macvim'
@@ -138,6 +141,9 @@ alias mysqldump="/Applications/MAMP/Library/bin/mysqldump"
 # Terminal Settings
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -v
+
+# Sauce labs shortuct
+alias sauce='tab "sites && cd sauce-labs && bin/sc -u vectormediagroup -k 355ea7db-9fe4-4bde-b729-878d75e3816c"'
 
 # Load in some custom function aliases
 source "/Users/khaliq/Configuration-Files/functions.zsh"
