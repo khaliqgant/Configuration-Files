@@ -35,7 +35,7 @@ DISABLE_UPDATE_PROMPT=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(osx git bower jira npm terminalapp web-search zsh-syntax-highlighting 
+plugins=(osx git bower jira npm terminalapp jsontools zsh-syntax-highlighting 
 git-extras)
 
 source $ZSH/oh-my-zsh.sh
