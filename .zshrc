@@ -74,6 +74,7 @@ alias cpwd='pwd | xclip -selection clipboard'
 
 #Open Config Files
 alias ssh-config='open -a Macvim ~/.ssh/config'
+alias show:ssh-config='cat ~/.ssh/config'
 alias .zshrc='open -a Macvim ~/.zshrc'
 alias .vimrc='open -a Macvim ~/.vimrc.local'
 alias .bundles='open -a Macvim ~/.vimrc.bundles.local'
