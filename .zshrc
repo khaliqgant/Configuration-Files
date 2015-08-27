@@ -72,6 +72,9 @@ alias fd='find . -type d -name'
 # copy the current working directory to the clipboard
 alias cpwd='pwd | xclip -selection clipboard'
 
+# restart the shell
+alias restart='exec -l $SHELL'
+
 #Open Config Files
 alias ssh-config='open -a Macvim ~/.ssh/config'
 alias show:ssh-config='cat ~/.ssh/config'
@@ -133,7 +136,6 @@ export PATH=/usr/local/share/npm/bin:$PATH #Setting to use Grunt
 export PATH=~/npm/bin:$PATH #Because installed node w/o homebrew add the npm path from the local usr
 export PATH=~/.node/bin:$PATH #add path for npm install modules
 export PATH=/usr/texbin:$PATH #Add latex to path
-export PATH=/usr/local/share/python:$PATH #add python path
 
 
 # MySQL
@@ -149,3 +151,9 @@ alias sauce='tab "sites && cd sauce-labs && bin/sc -u vectormediagroup -k 355ea7
 
 # Load in some custom function aliases
 source "/Users/khaliq/Configuration-Files/functions.zsh"
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/khaliq/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/khaliq/google-cloud-sdk/completion.zsh.inc'
