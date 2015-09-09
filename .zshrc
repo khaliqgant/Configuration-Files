@@ -149,11 +149,12 @@ bindkey -v
 # Sauce labs shortuct
 alias sauce='tab "sites && cd sauce-labs && bin/sc -u vectormediagroup -k 355ea7db-9fe4-4bde-b729-878d75e3816c"'
 
-# Load in some custom function aliases
 source "/Users/khaliq/Configuration-Files/functions.zsh"
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/khaliq/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/Users/khaliq/google-cloud-sdk/completion.zsh.inc'
+# conditionally load some google cloud stuff
+if [[ $(HOSTNAME) == "Khaliq-Gant-macbook.local" ]]; then
+    # The next line updates PATH for the Google Cloud SDK.
+    source '/Users/khaliq/google-cloud-sdk/path.zsh.inc'
+    # The next line enables shell command completion for gcloud.
+    source '/Users/khaliq/google-cloud-sdk/completion.zsh.inc'
+fi
