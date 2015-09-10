@@ -152,7 +152,7 @@ alias sauce='tab "sites && cd sauce-labs && bin/sc -u vectormediagroup -k 355ea7
 source "/Users/khaliq/Configuration-Files/functions.zsh"
 
 # conditionally load some google cloud stuff
-if [[ $(HOSTNAME) == "Khaliq-Gant-macbook.local" ]]; then
+if [[ $(HOSTNAME) == "Khaliqs-MacBook-Air.local" ]]; then
     # The next line updates PATH for the Google Cloud SDK.
     source '/Users/khaliq/google-cloud-sdk/path.zsh.inc'
     # The next line enables shell command completion for gcloud.
