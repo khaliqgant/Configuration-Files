@@ -45,6 +45,10 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 [[ -s /etc/profile.d/autojump.sh ]] && . /etc/profile.d/autojump.sh
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
+# set vim as editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # item for eecli
 export PATH=~/.composer/vendor/bin:$PATH
 
