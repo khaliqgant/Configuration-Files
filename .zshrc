@@ -58,6 +58,7 @@ alias grd='guard --no-interactions'
 alias bg='bundle exec guard'
 
 #Folder Nav
+alias back='cd -'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
