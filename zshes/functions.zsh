@@ -65,3 +65,6 @@ if [[ $(HOSTNAME) == "Khaliqs-MacBook-Air.local" ]]; then
     # The next line enables shell command completion for gcloud.
     source '/Users/khaliq/google-cloud-sdk/completion.zsh.inc'
 fi
+
+# load in local .bashrc.local if there
+alias bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && source $(find . -maxdepth 2 -name .bashrc-local)"
