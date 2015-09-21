@@ -57,3 +57,11 @@ if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
 
   chpwd
 }
+
+# conditionally load some google cloud stuff
+if [[ $(HOSTNAME) == "Khaliqs-MacBook-Air.local" ]]; then
+    # The next line updates PATH for the Google Cloud SDK.
+    source '/Users/khaliq/google-cloud-sdk/path.zsh.inc'
+    # The next line enables shell command completion for gcloud.
+    source '/Users/khaliq/google-cloud-sdk/completion.zsh.inc'
+fi

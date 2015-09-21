@@ -49,54 +49,18 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# item for eecli
-export PATH=~/.composer/vendor/bin:$PATH
 
+#####################
 # KJG's Customization
-#Dev
-alias grd='guard --no-interactions'
-alias bg='bundle exec guard'
+#####################
 
-#Folder Nav
-alias back='cd -'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias sites='cd ~/Sites'
-alias config='cd ~/Configuration-Files'
-alias Sites='cd ~/Sites'
-alias Config='cd ~/Configuration-Files'
-alias spf=' cd ~/.spf13-vim-3/'
-alias home=$HOME
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-# mkdir and cd into that dir
-mkd() {
-    mkdir -p $1
-    cd $1
-}
-
-# quickly find files and directory
-alias ff='find . -type f -name'
-alias fd='find . -type d -name'
-
-# copy the current working directory to the clipboard
-alias cpwd='pwd | xclip -selection clipboard'
-
-# restart the shell
+## restart the shell
 alias restart='exec -l $SHELL'
 
-#Open Config Files
-alias ssh-config='open -a Macvim ~/.ssh/config'
-alias show:ssh-config='cat ~/.ssh/config'
-alias .zshrc='open -a Macvim ~/.zshrc'
-alias .vimrc='open -a Macvim ~/.vimrc.local'
-alias .bundles='open -a Macvim ~/.vimrc.bundles.local'
-alias spf-vimrc='open -a Macvim ~/.spf13-vim-3/.vimrc'
-alias vim-bundle='cd ~/.spf13-vim-3/.vim/bundle'
+#Vim
+alias vim='open -a Macvim'
 
-#Deploy
-alias deploy:staging='(cd $(dirname $(find . -name Envoy.blade.php)) && envoy run deploy:staging)'
-alias deploy:production='(cd $(dirname $(find . -name Envoy.blade.php)) && envoy run deploy:production)'
+# Build tools
 alias big:gulp='(cd $(dirname $(find . -maxdepth 2 -name gulpfile.js)) && gulp)'
 alias bower:install='(cd $(dirname $(find . -maxdepth 2 -name bower.json)) && bower install)'
 alias bower:update='(cd $(dirname $(find . -maxdepth 2 -name bower.json)) && bower update)'
@@ -105,48 +69,9 @@ alias bower:update='(cd $(dirname $(find . -maxdepth 2 -name bower.json)) && bow
 alias eecli='vendor/bin/eecli'
 alias sync:db='remotee-sync --env=production -d'
 
-#Go
-export GOPATH=/Users/khaliq/Sites/go
-export PATH=$PATH:$GOPATH/bin
-
-#Git
-alias fetch='git fetch'
-alias log='git log --oneline --abbrev-commit --all --graph --decorate --color'
-alias gc='git commit -m'
-alias push='git push origin'
-alias pull='git pull origin'
-alias status='git status'
-alias co='git checkout'
-# reference : http://git-scm.com/docs/git-clean
-alias clean='git clean -f -d'
-alias stash='git stash'
-alias stash:list='git stash list --date=local'
-alias pop='git stash pop'
-alias new='git checkout -b'
-alias reset='git reset --hard origin/master'
-# take you to the top of the git repo
-alias root='cd "`git rev-parse --show-toplevel`"'
-# zsh got rid of these commands with this PR https://github.com/robbyrussell/oh-my-zsh/pull/2790
-alias ggpush='ggp'
-alias ggpull='ggl'
-
-#Vim
-alias vim='open -a Macvim'
-
-# Docker
+# Docker, paths in path.zsh
 alias es-local='sites && cd es-docker && boot2docker up && docker start es'
 alias es-local:stop='sites && cd es-docker && docker stop es && boot2docker stop'
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/khaliq/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export PATH=/Applications/MAMP/bin/php/php5.4.4/bin:$PATH #MAMP PHI setting for Composer
-export PATH=/usr/local/share/npm/bin:$PATH #Setting to use Grunt
-export PATH=~/npm/bin:$PATH #Because installed node w/o homebrew add the npm path from the local usr
-export PATH=~/.node/bin:$PATH #add path for npm install modules
-export PATH=/usr/texbin:$PATH #Add latex to path
-
 
 # MySQL
 alias mysql="/Applications/MAMP/Library/bin/mysql"
@@ -156,15 +81,24 @@ alias mysqldump="/Applications/MAMP/Library/bin/mysqldump"
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -v
 
-# Sauce labs shortuct
+# Folder Nav
+source ~/Configuration-Files/folder-nav.zsh
+
+# Open Config Files
+source ~/Configuration-Files/config.zsh
+
+# Deploy
+source ~/Configuration-Files/deploy.zsh
+
+# load git aliases
+source ~/Configuration-Files/git.zsh
+
+# load in path exports
+source ~/Configuration-Files/path.zsh
+
+# load other functions
+source ~/Configuration-Files/functions.zsh
+
+# Sauce labs shortuct, this depends on tab which is in functions.zsh
 alias sauce='tab "sites && cd sauce-labs && bin/sc -u vectormediagroup -k 355ea7db-9fe4-4bde-b729-878d75e3816c"'
 
-source "/Users/khaliq/Configuration-Files/functions.zsh"
-
-# conditionally load some google cloud stuff
-if [[ $(HOSTNAME) == "Khaliqs-MacBook-Air.local" ]]; then
-    # The next line updates PATH for the Google Cloud SDK.
-    source '/Users/khaliq/google-cloud-sdk/path.zsh.inc'
-    # The next line enables shell command completion for gcloud.
-    source '/Users/khaliq/google-cloud-sdk/completion.zsh.inc'
-fi
