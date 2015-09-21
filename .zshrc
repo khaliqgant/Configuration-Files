@@ -69,6 +69,11 @@ alias Config='cd ~/Configuration-Files'
 alias spf=' cd ~/.spf13-vim-3/'
 alias home=$HOME
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+# mkdir and cd into that dir
+mkd() {
+    mkdir -p $1
+    cd $1
+}
 
 # quickly find files and directory
 alias ff='find . -type f -name'
