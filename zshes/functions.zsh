@@ -68,3 +68,9 @@ fi
 
 # load in local .bashrc.local if there
 alias bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && source $(find . -maxdepth 2 -name .bashrc-local)"
+
+# json pretty print
+# http://stackoverflow.com/questions/352098/how-can-i-pretty-print-json?answertab=votes#tab-top
+jprint() {
+    echo $1 | python -m json.tool
+}
