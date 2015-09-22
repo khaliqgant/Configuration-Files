@@ -54,7 +54,7 @@ export EDITOR="$VISUAL"
 # KJG's Customization
 #####################
 
-## restart the shell
+# restart the shell
 alias restart='exec -l $SHELL'
 
 #Vim
@@ -65,7 +65,7 @@ alias big:gulp='(cd $(dirname $(find . -maxdepth 2 -name gulpfile.js)) && gulp)'
 alias bower:install='(cd $(dirname $(find . -maxdepth 2 -name bower.json)) && bower install)'
 alias bower:update='(cd $(dirname $(find . -maxdepth 2 -name bower.json)) && bower update)'
 
-#ExpressionEngine
+# ExpressionEngine
 alias eecli='vendor/bin/eecli'
 alias sync:db='remotee-sync --env=production -d'
 
