@@ -3,6 +3,6 @@ config=~/Configuration-Files
 for file in $config/.*
 do
     if [[ "$file" != $config/".DS_Store" && -f "$file" ]]; then
-        ln -s "$file" ~/
+        $dry ln -sf "$file" ~/
     fi;
 done
