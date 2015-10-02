@@ -81,6 +81,9 @@ alias mysqldump="/Applications/MAMP/Library/bin/mysqldump"
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -v
 
+# History
+source ~/Configuration-Files/zshes/history.zsh
+
 # Folder Nav
 source ~/Configuration-Files/zshes/folder-nav.zsh
 
