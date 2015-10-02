@@ -1,5 +1,5 @@
 # read file contents into memory
-repos=$(<repos.txt)
+repos=$(<data/repos.txt)
 sites=~/Sites
 
 if [ ! -d "$sites" ]; then
