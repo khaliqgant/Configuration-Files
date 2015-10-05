@@ -34,4 +34,11 @@ with the ```--dry-run``` in progress
 * gulp
 * ruby
 * node.js
+* bower
+* Envoy
+* eecli
+
+## References
+* Install node.js, iojs, nvm, npm : http://stackoverflow.com/questions/28017374/what-is-the-suggested-way-to-install-brew-node-js-io-js-nvm-npm-on-os-x
+
 

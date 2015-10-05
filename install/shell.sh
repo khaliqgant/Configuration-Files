@@ -4,3 +4,5 @@ echo "setting symlinks"
 sh symlinks.sh
 echo "adding zsh syntax highlighting"
 ($dry cd ~/.oh-my-zsh/custom/plugins && $dry git clone git://github.com/zsh-users/zsh-syntax-highlighting.git)
+echo "installing rvm"
+$dry gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 && $dry \curl -sSL https://get.rvm.io | bash -s stable

@@ -12,3 +12,9 @@ do
 done
 
 
+work_repos=$(<~/Dropbox\ \(Vector\ Media\ Group\)/Vector/repos.txt)
+
+for repo in $work_repos
+do
+    ($dry cd $sites && $dry git clone $repo)
+done
