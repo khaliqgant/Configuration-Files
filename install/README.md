@@ -22,4 +22,11 @@ Tests pass a ```--dry-run``` flag to the scripts which simply outputs and doesnâ
 * In addition there are individual scripts that call the broken out scripts
 with the ```--dry-run``` in progress
 
+## Needs to be done
+* Install dev tools
+* rvm
+* grunt
+* gulp
+* ruby
+* node.js
 
