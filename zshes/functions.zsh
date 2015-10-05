@@ -75,13 +75,16 @@ jprint() {
     echo $1 | python -m json.tool
 }
 
+
+# this isn't needed because of the command brew bundle dump
+# keeping this for note purposes
 update_brewfile() {
     # turn into string array
+    config
     brews=($(brew list))
     # loop over elements now
     for brew in "${brews[@]}"
     do
-        # now write to file
-        echo "yo" $brew
     done
+    cd -
 }
