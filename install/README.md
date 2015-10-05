@@ -16,6 +16,11 @@ Oh, new computer?? You fancy huh?
 * https://github.com/zsh-users/zsh-history-substring-search
 * ....
 
+## Other dependencies
+* Handle homebrew installations: https://github.com/Homebrew/homebrew-bundle
+* Handle syncing app configurations: https://github.com/lra/mackup
+* Handle installing apps: https://github.com/caskroom/homebrew-cask
+
 ## Tests
 * Run tests/main.sh to generate an output of everything that is going to run. 
 Tests pass a ```--dry-run``` flag to the scripts which simply outputs and doesn’t run
