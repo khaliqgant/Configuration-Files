@@ -1,7 +1,7 @@
 vlc
 iterm2
 java
-github
+github-desktop
 sublime-text
 macvim
 virtualbox
@@ -27,3 +27,13 @@ firefox
 google-chrome
 spotify
 hipchat
+istat-menus
+1password
+recordit
+dash
+lastfm
+mailbox
+mou
+skype
+sonos
+textmate
