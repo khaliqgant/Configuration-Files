@@ -74,3 +74,14 @@ alias bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && source $(find . -
 jprint() {
     echo $1 | python -m json.tool
 }
+
+update_brewfile() {
+    # turn into string array
+    brews=($(brew list))
+    # loop over elements now
+    for brew in "${brews[@]}"
+    do
+        # now write to file
+        echo "yo" $brew
+    done
+}
