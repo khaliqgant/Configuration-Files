@@ -11,3 +11,6 @@ for app in $apps
 do
     $dry brew cask install $app
 done
+echo "installing valgrind for c development"
+# source: http://stackoverflow.com/questions/26564125/yosemite-and-valgrind
+brew install --HEAD valgrind
