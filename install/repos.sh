@@ -12,7 +12,8 @@ do
 done
 
 
-work_repos=$(<~/Dropbox\ \(Vector\ Media\ Group\)/Vector/repos.txt)
+work=~/Dropbox\ \(Vector\ Media\ Group\)/Vector
+work_repos=$(<$work/repos.txt)
 
 for repo in $work_repos
 do
