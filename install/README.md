@@ -39,6 +39,6 @@ with the ```--dry-run``` in progress
 * eecli
 
 ## References
-* Install node.js, iojs, nvm, npm : http://stackoverflow.com/questions/28017374/what-is-the-suggested-way-to-install-brew-node-js-io-js-nvm-npm-on-os-x
+* Need to have iterm settings as : https://www.dropbox.com/s/hqm2luz4dkj75wu/Screenshot%202015-10-05%2017.36.56.png?dl=0
 
 

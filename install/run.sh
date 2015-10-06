@@ -22,3 +22,5 @@ echo "restoring mackup settings"
 $dry mackup restore
 echo "installing global composer packages"
 sh composer.sh
+echo "copying iterm fonts"
+$dry cp iterm/fonts/source-code-pro-1.017R/* /Library/Fonts/

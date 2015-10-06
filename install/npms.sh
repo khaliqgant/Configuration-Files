@@ -1,4 +1,4 @@
-packages=$(data/npm.txt)
+packages=$(<data/npm.txt)
 
 for package in $packages
 do
