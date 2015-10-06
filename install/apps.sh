@@ -14,3 +14,5 @@ done
 echo "installing valgrind for c development"
 # source: http://stackoverflow.com/questions/26564125/yosemite-and-valgrind
 brew install --HEAD valgrind
+echo "installing sshpas"
+brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
