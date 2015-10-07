@@ -1,9 +1,8 @@
 grunt-cli
 gulp
-instant-markdown
+instant-markdown-d
 mocha
 npm-css
 remotee-sync
 watchify
-bower
 

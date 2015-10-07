@@ -41,4 +41,12 @@ with the ```--dry-run``` in progress
 ## References
 * Need to have iterm settings as : https://www.dropbox.com/s/hqm2luz4dkj75wu/Screenshot%202015-10-05%2017.36.56.png?dl=0
 
+## Known Issues
+* Using nvm to manage node.js versions
+* TL;DR run npms.sh twice:
+In the nodesh.sh have a command that copies the nvm specific binaries to the usr/local
+however that doesn't copy over what is needed for the specific npm libraries
+so binaries are created for whatever is in the npm.txt file. Once npm
+is in the usr/local can run the npms.sh again to overwrite the previously 
+copied over npm binaries. 
 
