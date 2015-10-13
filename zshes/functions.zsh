@@ -59,15 +59,18 @@ if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
 }
 
 # conditionally load some google cloud stuff
-if [[ $(HOSTNAME) == "Khaliqs-MacBook-Air.local" ]]; then
+if [[ $(HOSTNAME) == "Khaliqs-MacBook-Pro.local" ]]; then
     # The next line updates PATH for the Google Cloud SDK.
-    source '/Users/khaliq/google-cloud-sdk/path.zsh.inc'
+    source '/Users/khaliq/Development/google-cloud-sdk/path.zsh.inc'
     # The next line enables shell command completion for gcloud.
-    source '/Users/khaliq/google-cloud-sdk/completion.zsh.inc'
+    source '/Users/khaliq/Development/google-cloud-sdk/completion.zsh.inc'
 fi
 
 # load in local .bashrc.local if there
 alias bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && source $(find . -maxdepth 2 -name .bashrc-local) && echo 'local bashrc loaded'"
+
+# start up a bunch of apps by calling a script
+alias start="sh ~/Configuration-Files/start.sh"
 
 # json pretty print
 # http://stackoverflow.com/questions/352098/how-can-i-pretty-print-json?answertab=votes#tab-top
