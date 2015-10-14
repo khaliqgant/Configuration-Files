@@ -10,6 +10,8 @@ export dry=$dry
 
 echo "downloading cli and vim items"
 sh shell.sh
+echo "setting up ruby setup"
+sh rvm-setup.sh
 echo "downloading homebrew and cask apps"
 sh apps.sh
 echo "cloning my repos"
