@@ -3,7 +3,6 @@ iterm2
 java
 github-desktop
 sublime-text
-macvim
 virtualbox
 vagrant
 sourcetree
@@ -38,3 +37,5 @@ skype
 sonos
 textmate
 hyperdock
+shortcat
+plug

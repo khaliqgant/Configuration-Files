@@ -11,6 +11,8 @@ for app in $apps
 do
     $dry brew cask install $app
 done
+echo "installing macvim with lua support see https://github.com/Shougo/neocomplete.vim#vim-for-mac-os-x"
+brew install macvim --with-cscope --with-lua
 echo "installing valgrind for c development"
 # source: http://stackoverflow.com/questions/26564125/yosemite-and-valgrind
 brew install --HEAD valgrind
