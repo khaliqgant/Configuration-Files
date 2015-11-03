@@ -39,3 +39,4 @@ textmate
 hyperdock
 shortcat
 plug
+slack
