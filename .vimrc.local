@@ -36,6 +36,9 @@ let g:instant_markdown_autostart=0
 " easytags mad slow, move to async updates
 let g:easytags_async=1
 
+" use jshint for syntastic
+let g:syntastic_javascript_checkers = ['jshint']
+
 " Allow ejs files to be read as html
 " ref: http://stackoverflow.com/questions/4597721/syntax-highlight-for-ejs-files-in-vim
 "set au BufNewFile,BufRead *.ejs set filetype=html
