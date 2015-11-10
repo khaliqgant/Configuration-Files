@@ -6,4 +6,5 @@ npm-css
 remotee-sync
 watchify
 jshint
+browserify
 
