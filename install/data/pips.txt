@@ -1,3 +1,4 @@
 fabric
 virtualenv
 requests
+grip
