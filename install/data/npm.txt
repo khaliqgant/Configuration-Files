@@ -7,4 +7,5 @@ remotee-sync
 watchify
 jshint
 browserify
+nodemon
 
