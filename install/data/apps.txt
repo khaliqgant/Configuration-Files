@@ -40,3 +40,4 @@ hyperdock
 shortcat
 plug
 slack
+chefdk

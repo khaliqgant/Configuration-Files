@@ -2,5 +2,3 @@ fabric
 virtualenv
 requests
 grip
-tornado
-chardet
