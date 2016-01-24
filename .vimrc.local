@@ -75,3 +75,6 @@ else
     \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
     \ }
 endif
+
+" allow crontab to be edited
+autocmd filetype crontab setlocal nobackup nowritebackup
