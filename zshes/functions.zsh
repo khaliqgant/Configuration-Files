@@ -68,6 +68,7 @@ fi
 
 # load in local .bashrc.local if there
 alias bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && source $(find . -maxdepth 2 -name .bashrc-local) && echo 'local bashrc loaded'"
+alias show:bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && cat $(find . -maxdepth 2 -name .bashrc-local)"
 
 # start up a bunch of apps by calling a script
 alias start="sh ~/Configuration-Files/start.sh"
