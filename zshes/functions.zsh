@@ -71,26 +71,12 @@ alias bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && source $(find . -
 alias show:bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && cat $(find . -maxdepth 2 -name .bashrc-local)"
 
 # start up a bunch of apps by calling a script
-alias start="sh ~/Configuration-Files/start.sh"
+alias start="sh ~/Configuration-Files/scripts/start.sh"
 
 # json pretty print
 # http://stackoverflow.com/questions/352098/how-can-i-pretty-print-json?answertab=votes#tab-top
 jprint() {
     echo $1 | python -m json.tool
-}
-
-
-# this isn't needed because of the command brew bundle dump
-# keeping this for note purposes
-update_brewfile() {
-    # turn into string array
-    config
-    brews=($(brew list))
-    # loop over elements now
-    for brew in "${brews[@]}"
-    do
-    done
-    cd -
 }
 
 update_nvm() {
@@ -100,4 +86,10 @@ update_nvm() {
     current_node=$(nvm ls | sed -n '1 p' | tr -d ' ')
     #ln -sfvn /Users/khaliq/.nvm/$current_node/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/
     ln -sfvn /Users/khaliq/.nvm/v0.10.40/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
+}
+
+# navigate to a directory as soon as you ssh in
+# invoke by sshcd server-alias:directory/to/navigate/to
+sshcd() {
+    sh ~/Configuration-Files/scripts/sshcd.sh $1
 }
