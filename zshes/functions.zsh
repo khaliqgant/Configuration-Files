@@ -18,6 +18,32 @@ function pdf {
     fi
 }
 
+# http://stackoverflow.com/questions/1589114/opening-a-new-terminal-tab-in-osxsnow-leopard-with-the-opening-terminal-window
+function terminal_tab() {
+    if [ $# -ne 1 ]; then
+        PATHDIR=`pwd`
+    else
+        PATHDIR=$1
+    fi
+
+    /usr/bin/osascript <<EOF
+    activate application "Terminal"
+    tell application "System Events"
+        keystroke "t" using {command down}
+    end tell
+    tell application "Terminal"
+        repeat with win in windows
+            try
+                if get frontmost of win is true then
+                    do script "cd $PATHDIR; clear" in (selected tab of win)
+                end if
+            end try
+        end repeat
+    end tell
+EOF
+clear
+}
+
 # open up a new tab
 # source: https://gist.github.com/bobthecow/757788
 function tab () {
