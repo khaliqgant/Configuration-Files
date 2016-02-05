@@ -22,6 +22,12 @@ function pdf {
     fi
 }
 
+# depends on the most excellent jq library
+# https://stedolan.github.io/jq/
+function validate() {
+    pbpaste | jq '.'
+}
+
 # Set autoresume
 if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
   function chpwd {
