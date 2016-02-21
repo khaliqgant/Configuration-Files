@@ -25,7 +25,7 @@ function pdf {
 # depends on the most excellent jq library
 # https://stedolan.github.io/jq/
 function validate() {
-    pbpaste | jq '.'
+    pbpaste | jq '.' $@
 }
 
 # Set autoresume
