@@ -9,4 +9,5 @@ jshint
 browserify
 nodemon
 yo
+how2
 
