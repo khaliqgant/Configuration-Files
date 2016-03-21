@@ -40,6 +40,10 @@ if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
   chpwd
 }
 
+function checkConfig() {
+    sed -n "/"$1"/,/^$/p" ~/.ssh/config;
+}
+
 # conditionally load some google cloud stuff
 if [[ $(HOSTNAME) == "Khaliqs-MacBook-Pro.local" ]]; then
     # The next line updates PATH for the Google Cloud SDK.
