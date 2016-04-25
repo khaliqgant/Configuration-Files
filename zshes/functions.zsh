@@ -44,6 +44,10 @@ function checkConfig() {
     sed -n "/"$1"/,/^$/p" ~/.ssh/config;
 }
 
+function perf {
+  curl -o /dev/null  -s -w "%{time_connect} + %{time_starttransfer} = %{time_total}\n" "$1"
+}
+
 # conditionally load some google cloud stuff
 if [[ $(HOSTNAME) == "Khaliqs-MacBook-Pro.local" ]]; then
     # The next line updates PATH for the Google Cloud SDK.
