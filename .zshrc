@@ -68,6 +68,7 @@ alias bower:update='(cd $(dirname $(find . -maxdepth 2 -name bower.json)) && bow
 # ExpressionEngine
 alias eecli='vendor/bin/eecli'
 alias sync:db='remotee-sync --env=production -d'
+alias save:db='remotee-sync --env=production -s --file=$(basename `git rev-parse --show-toplevel`)_$(date +%m-%d).sql --sync=no -d'
 
 # Docker, paths in path.zsh
 alias es-local='sites && cd es-docker && boot2docker up && docker start es'
