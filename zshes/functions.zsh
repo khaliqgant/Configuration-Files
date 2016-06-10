@@ -28,6 +28,10 @@ function validate() {
     pbpaste | jq '.' $@
 }
 
+function copyJson() {
+    pbpaste | jq '.' $@ | pbcopy
+}
+
 # Set autoresume
 if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
   function chpwd {
@@ -40,7 +44,7 @@ if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
   chpwd
 }
 
-function checkConfig() {
+function searchConfig () {
     sed -n "/"$1"/,/^$/p" ~/.ssh/config;
 }
 
