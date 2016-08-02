@@ -11,3 +11,4 @@ nodemon
 yo
 how2
 webpack
+typescript

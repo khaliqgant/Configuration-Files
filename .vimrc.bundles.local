@@ -11,3 +11,7 @@ Bundle 'fatih/vim-go'
 Bundle 'lervag/vim-latex'
 Bundle 'HerringtonDarkholme/yats.vim'
 Bundle 'vim-airline/vim-airline-themes'
+Bundle 'leafgarland/typescript-vim'
+Bundle 'mustache/vim-mustache-handlebars'
+
+UnBundle 'Valloric/YouCompleteMe'
