@@ -32,6 +32,10 @@ function copyJson() {
     pbpaste | jq '.' $@ | pbcopy
 }
 
+function copyFile() {
+    cat $@ | pbcopy
+}
+
 # Set autoresume
 if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
   function chpwd {
