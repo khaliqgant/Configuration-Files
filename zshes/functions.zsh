@@ -64,6 +64,11 @@ if [[ $(HOSTNAME) == "Khaliqs-MacBook-Pro.local" ]]; then
     source '/Users/khaliq/Development/google-cloud-sdk/completion.zsh.inc'
 fi
 
+# conditionally load in some project specific items for my work computer
+if [[ $(HOSTNAME) == "Khaliqs-MacBook-Pro.local" ]]; then
+    source '/Users/khaliq/Dropbox (Personal)/KJG/Personal/Work/VMG/scripts/functions.zsh'
+fi
+
 # load in local .bashrc.local if there
 alias bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && source $(find . -maxdepth 2 -name .bashrc-local) && echo 'local bashrc loaded'"
 alias show:bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && cat $(find . -maxdepth 2 -name .bashrc-local)"
