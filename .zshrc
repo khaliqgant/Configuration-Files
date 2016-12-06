@@ -101,7 +101,7 @@ source ~/Configuration-Files/zshes/git.zsh
 source ~/Configuration-Files/zshes/path.zsh
 
 # load other functions
-source ~/Configuration-Files/zshes/functions.zsh
+source ~/Configuration-Files/zshes/functions/main.zsh
 
 # Sauce labs shortuct, this depends on tab which is in functions.zsh
 alias sauce='tab "sites && cd sauce-labs && bin/sc -u vectormediagroup -k 355ea7db-9fe4-4bde-b729-878d75e3816c"'

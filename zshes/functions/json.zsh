@@ -1,0 +1,22 @@
+# depends on the most excellent jq library
+# https://stedolan.github.io/jq/
+function validate() {
+    pbpaste | jq '.' $@
+}
+
+function copyJson() {
+    pbpaste | jq '.' $@ | pbcopy
+}
+
+function copyFile() {
+    cat $@ | pbcopy
+}
+
+# leverages https://github.com/simeji/jid
+function filter() {
+    pbpaste | jid
+}
+
+function minify() {
+    pbpaste | jq -c '.' $@ | pbcopy
+}

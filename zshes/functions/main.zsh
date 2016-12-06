@@ -1,6 +1,9 @@
 # load in tab function
 source ~/Configuration-Files/zshes/tab.zsh
 
+# load in the json functions
+source ~/Configuration-Files/zshes/functions/json.zsh
+
 
 # Java
 # shortcut for compiling and running Java programs
@@ -20,25 +23,6 @@ function pdf {
     if [[ $? == 0 ]]; then
        open $filename.pdf
     fi
-}
-
-# depends on the most excellent jq library
-# https://stedolan.github.io/jq/
-function validate() {
-    pbpaste | jq '.' $@
-}
-
-function copyJson() {
-    pbpaste | jq '.' $@ | pbcopy
-}
-
-function copyFile() {
-    cat $@ | pbcopy
-}
-
-# leverages https://github.com/simeji/jid
-function filter() {
-    pbpaste | jid
 }
 
 # Set autoresume
@@ -80,12 +64,6 @@ alias show:bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && cat $(find .
 
 # start up a bunch of apps by calling a script
 alias start="sh ~/Configuration-Files/scripts/start.sh"
-
-# json pretty print
-# http://stackoverflow.com/questions/352098/how-can-i-pretty-print-json?answertab=votes#tab-top
-jprint() {
-    echo $1 | python -m json.tool
-}
 
 update_nvm() {
     #n=$(which node);n=${n%/bin/node}; chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local 
