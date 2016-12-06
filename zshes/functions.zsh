@@ -36,6 +36,11 @@ function copyFile() {
     cat $@ | pbcopy
 }
 
+# leverages https://github.com/simeji/jid
+function filter() {
+    pbpaste | jid
+}
+
 # Set autoresume
 if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
   function chpwd {
