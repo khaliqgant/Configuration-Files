@@ -14,7 +14,7 @@ function copyFile() {
 
 # leverages https://github.com/simeji/jid
 function filter() {
-    pbpaste | jid
+    pbpaste | jid | jq '.'
 }
 
 function minify() {
