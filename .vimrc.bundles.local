@@ -13,5 +13,6 @@ Bundle 'HerringtonDarkholme/yats.vim'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'leafgarland/typescript-vim'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'pangloss/vim-javascript'
 
 UnBundle 'Valloric/YouCompleteMe'
