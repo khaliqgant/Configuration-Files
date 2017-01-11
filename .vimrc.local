@@ -37,7 +37,7 @@ let g:instant_markdown_autostart=0
 let g:easytags_async=1
 
 " use jshint, jscs for syntastic
-let g:syntastic_javascript_checkers = ['jshint, jscs']
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 
 " Allow ejs files to be read as html
 " ref: http://stackoverflow.com/questions/4597721/syntax-highlight-for-ejs-files-in-vim
