@@ -1,0 +1,11 @@
+bower
+git
+git-extras
+jira
+jsontools
+npm
+osx
+terminalapp
+zsh-nvm
+zsh-syntax-highlighting
+vi-mode
