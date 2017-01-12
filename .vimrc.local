@@ -37,7 +37,7 @@ let g:instant_markdown_autostart=0
 let g:easytags_async=1
 
 " use jshint, jscs for syntastic
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
 
 " jsdoc FTW
 let g:javascript_plugin_jsdoc = 1
