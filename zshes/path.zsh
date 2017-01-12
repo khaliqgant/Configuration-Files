@@ -7,6 +7,7 @@ export PATH=/usr/local/share/npm/bin:$PATH #Setting to use Grunt
 export PATH=~/npm/bin:$PATH #Because installed node w/o homebrew add the npm path from the local usr
 export PATH=~/.node/bin:$PATH #add path for npm install modules
 export PATH=/usr/texbin:$PATH #Add latex to path
+export PATH=/usr/local/sbin:$PATH
 
 #Go
 export GOPATH=/Users/khaliq/Sites/go
