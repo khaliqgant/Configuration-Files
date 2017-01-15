@@ -6,6 +6,7 @@ jsontools
 npm
 osx
 terminalapp
+vi-mode
+zsh-autosuggestions
 zsh-nvm
 zsh-syntax-highlighting
-vi-mode
