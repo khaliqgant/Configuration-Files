@@ -13,11 +13,6 @@ export PATH=/usr/local/sbin:$PATH
 export GOPATH=/Users/khaliq/Sites/go
 export PATH=$PATH:$GOPATH/bin
 
-# Docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/khaliq/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
 # nvm
 export NVM_DIR="/Users/khaliq/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
