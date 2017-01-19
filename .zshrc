@@ -58,6 +58,7 @@ alias restart='exec -l $SHELL'
 
 #Vim
 alias vim='open -a Macvim'
+alias v='vim .'
 
 # Build tools
 alias big:gulp='(cd $(dirname $(find . -maxdepth 2 -name gulpfile.js)) && gulp)'
