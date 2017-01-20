@@ -1,4 +1,4 @@
-alias fetch='git fetch'
+alias fetch='git fetch -pv'
 alias log='git log --oneline --abbrev-commit --all --graph --decorate --color'
 alias gc='git commit -m'
 alias push='git push origin'
