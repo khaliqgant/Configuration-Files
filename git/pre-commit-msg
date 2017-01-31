@@ -1,0 +1,8 @@
+#!/bin/bash
+
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+BRANCH_NAME="${BRANCH_NAME##*/}"
+
+sed -i.bak -e "1s/^/$BRANCH_NAME /" $1
+
+
