@@ -11,5 +11,6 @@ Bundle 'lervag/vim-latex'
 Bundle 'HerringtonDarkholme/yats.vim'
 Bundle 'leafgarland/typescript-vim'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'tfnico/vim-gradle'
 
 UnBundle 'Valloric/YouCompleteMe'
