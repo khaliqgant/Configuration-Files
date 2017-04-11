@@ -8,6 +8,7 @@ export PATH=~/npm/bin:$PATH #Because installed node w/o homebrew add the npm pat
 export PATH=~/.node/bin:$PATH #add path for npm install modules
 export PATH=/usr/texbin:$PATH #Add latex to path
 export PATH=/usr/local/sbin:$PATH
+export PATH=~/Library/Python/2.7/bin:$PATH
 
 #Go
 export GOPATH=/Users/khaliq/Sites/go
