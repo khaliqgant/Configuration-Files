@@ -17,3 +17,5 @@ export PATH=$PATH:$GOPATH/bin
 export NVM_DIR="/Users/khaliq/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# Ansible
+export PATH="/usr/local/opt/ansible@1.9/bin:$PATH"
