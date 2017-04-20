@@ -8,6 +8,7 @@ watchify
 jshint
 jscs
 eslint
+tslint
 browserify
 nodemon
 yo
