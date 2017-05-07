@@ -17,3 +17,8 @@ alias new='git checkout -b'
 alias reset='git reset --hard origin/master'
 # take you to the top of the git repo
 alias root='cd "`git rev-parse --show-toplevel`"'
+
+# remove branches that have been merged into the current branch
+purge-branches() {
+    git branch --merged | grep -v '\*' | xargs -n 1 git branch -d
+}
