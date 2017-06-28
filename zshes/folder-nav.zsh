@@ -23,4 +23,4 @@ alias fd='find . -type d -name'
 
 # copy the current working directory to the clipboard
 alias cpwd='pwd | xclip -selection clipboard'
-alias list='ls -tll'
+alias list='ls -tlla'
