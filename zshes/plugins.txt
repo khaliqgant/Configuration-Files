@@ -11,3 +11,4 @@ zsh-256color
 zsh-autosuggestions
 zsh-nvm
 zsh-syntax-highlighting
+zsh-histdb
