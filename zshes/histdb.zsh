@@ -2,6 +2,7 @@
 
 source ~/Configuration-Files/zshes/vendor/sqlite-history.zsh
 source ~/Configuration-Files/zshes/vendor/history-timer.zsh
+source ~/Configuration-Files/zshes/vendor/history-histdb-merge.zsh
 autoload -Uz add-zsh-hook
 add-zsh-hook preexec _start_timer
 add-zsh-hook precmd  _stop_timer
