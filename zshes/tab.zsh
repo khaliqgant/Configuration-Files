@@ -2,6 +2,9 @@
 
 # source: https://gist.github.com/bobthecow/757788
 # http://stackoverflow.com/questions/1589114/opening-a-new-terminal-tab-in-osxsnow-leopard-with-the-opening-terminal-window
+# https://apple.stackexchange.com/questions/148508/how-to-open-a-new-tab-in-iterm-in-the-same-folder-as-the-one-that-is-open
+# This is now built into oh-my-zsh but this I think this is a bit cleaner
+#   https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/osx/osx.plugin.zsh#L15
 function tab() {
 
 # find which app they're using
@@ -21,15 +24,21 @@ if [ -n "$args" ]; then
 fi
 
 if [[ " ${app} " == *" iTerm.app "* ]]; then
-osascript &>/dev/null <<EOF
-    tell application "$app"
-        tell current terminal
-            launch session "Default Session"
-            tell the last session
-                write text "cd \"$cdto\"$cmd"
-            end tell
+    osascript - "$@" <<EOF
+on run argv
+tell application "iTerm2"
+  tell current window
+    create tab with default profile
+    tell current tab
+        tell the current session
+            repeat with arg in argv
+               write text arg
+            end repeat
         end tell
     end tell
+  end tell
+end tell
+end run
 EOF
 fi
 
