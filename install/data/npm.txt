@@ -16,3 +16,4 @@ how2
 webpack
 typescript
 markdown-pdf
+xml2json-cli
