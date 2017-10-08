@@ -79,3 +79,7 @@ update_nvm() {
 sshcd() {
     sh ~/Configuration-Files/scripts/sshcd.sh $1
 }
+
+generate_invoice() {
+    sh ~/Sites/invoice-generator/generate.sh
+}
