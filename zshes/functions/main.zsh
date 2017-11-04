@@ -64,6 +64,7 @@ alias show:bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && cat $(find .
 
 # start up a bunch of apps by calling a script
 alias start="sh ~/Configuration-Files/scripts/start.sh"
+alias copyPrepareCommit="sh ~/Configuration-Files/scripts/copyPrepareCommit.sh"
 
 update_nvm() {
     #n=$(which node);n=${n%/bin/node}; chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local 
