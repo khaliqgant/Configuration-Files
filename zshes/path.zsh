@@ -1,3 +1,4 @@
+export SHELL=/bin/zsh
 # item for eecli
 export PATH=~/.composer/vendor/bin:$PATH
 
@@ -15,8 +16,7 @@ export GOPATH=/Users/khaliq/Sites/go
 export PATH=$PATH:$GOPATH/bin
 
 # nvm
-export NVM_DIR="/Users/khaliq/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+nvm use --delete-prefix v8.4.0 --silent
 
 # Ansible
 export PATH="/usr/local/opt/ansible@1.9/bin:$PATH"
