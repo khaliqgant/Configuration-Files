@@ -36,22 +36,20 @@ let g:instant_markdown_autostart=0
 " easytags mad slow, move to async updates
 let g:easytags_async=1
 
-" use jshint, jscs for syntastic
-let g:syntastic_javascript_checkers = ['jshint', 'jscs', 'eslint']
-
 " us tslint for typescript
 let g:syntastic_typescript_checkers = ['tslint']
 
-" php syntax checks
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+" only on save as this slows down vim
+" https://github.com/w0rp/ale#usage-linting
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 
 " jsdoc FTW
 let g:javascript_plugin_jsdoc = 1
 
-" Prettier typescript support
-let g:neoformat_enabled_typescript = ['prettier']
-
-"let g:neoformat_verbose = 1 " 
+" tsuquyomi https://github.com/Quramy/tsuquyomi
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " Allow ejs files to be read as html
 " ref: http://stackoverflow.com/questions/4597721/syntax-highlight-for-ejs-files-in-vim
@@ -69,16 +67,16 @@ augroup vimrc_autocmds
   autocmd BufEnter * match OverLength /\%80v.*/
 augroup END
 
+" Prettier neoformatting
+autocmd BufWritePre *.ts Neoformat
+autocmd BufWritePre *.js Neoformat
+
 " Set syntax highlighting for scala
 autocmd BufRead,BufNewFile *.scala set filetype=scala
 
 " Set syntax highligting for typescript
 autocmd BufNewFile,BufRead *.ts set syntax=typescript
 au BufReadPost *.ts set syntax=typescript
-
-" Prettier neoformatting
-autocmd BufWritePre *.ts Neoformat
-autocmd BufWritePre *.js Neoformat
 
 " Configures CtrlP to use git or silver searcher for autocompletion
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
