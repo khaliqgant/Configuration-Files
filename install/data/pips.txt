@@ -3,3 +3,4 @@ virtualenv
 requests
 grip
 awscli
+ansible-lint

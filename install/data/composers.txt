@@ -2,3 +2,4 @@ eecli/eecli
 phpunit/phpunit
 laravel/envoy=~1.0
 laravel/installer
+squizlabs/php_codesniffer
