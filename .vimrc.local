@@ -39,10 +39,11 @@ let g:easytags_async=1
 " us tslint for typescript
 let g:syntastic_typescript_checkers = ['tslint']
 
-" only on save as this slows down vim
 " https://github.com/w0rp/ale#usage-linting
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
+
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " jsdoc FTW
 let g:javascript_plugin_jsdoc = 1

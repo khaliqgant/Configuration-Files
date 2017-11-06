@@ -45,3 +45,17 @@ chmod +x replace
 ```
 ln -s ~/Configuration-Files/bin/replace .
 ```
+
+Linting
+---------
+* Using [ALE](https://github.com/w0rp/ale) to run linting checks since it lints
+asynchrnously to prevent lag. Syntastic is installed but disabled:
+```
+# https://stackoverflow.com/questions/20030603/vim-syntastic-how-to-disable-the-checker
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+```
+* ALE lags on text entering so it doesn't lint on text change:
+```
+let g:ale_lint_on_text_changed = 'never'
+```
