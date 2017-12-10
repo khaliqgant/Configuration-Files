@@ -12,7 +12,7 @@ do
 done
 
 
-work=~/Dropbox\ \(Vector\ Media\ Group\)/Vector
+work=~/Google\ Drive/Code/
 work_repos=$(<$work/repos.txt)
 
 for repo in $work_repos
