@@ -16,5 +16,6 @@ Bundle 'StanAngeloff/php.vim'
 Bundle 'w0rp/ale'
 Bundle 'sbdchd/neoformat'
 Bundle 'Quramy/tsuquyomi'
+Bundle 'Shougo/vimproc.vim'
 
 UnBundle 'Valloric/YouCompleteMe'

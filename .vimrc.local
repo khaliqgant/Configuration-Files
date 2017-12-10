@@ -1,3 +1,5 @@
+let g:ale_emit_conflict_warnings = 0
+
 " KJG's Custom
 nnoremap <F5> :NumbersToggle<CR>
 
@@ -51,6 +53,8 @@ let g:javascript_plugin_jsdoc = 1
 " tsuquyomi https://github.com/Quramy/tsuquyomi
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
+" https://github.com/Quramy/tsuquyomi/issues/174
+let g:tsuquyomi_use_vimproc=1
 
 " Allow ejs files to be read as html
 " ref: http://stackoverflow.com/questions/4597721/syntax-highlight-for-ejs-files-in-vim
