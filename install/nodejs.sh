@@ -6,7 +6,7 @@ source $(brew --prefix nvm)/nvm.sh
 echo "source $(brew --prefix nvm)/nvm.sh" >> ~/Configuration-Files/zshes/path.zsh
 
 # specify node.js version here
-version=0.10
+version=8.4.0
 nvm install $version
 npm install -g npm@latest
 nvm use $version
