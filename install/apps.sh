@@ -18,3 +18,5 @@ echo "installing valgrind for c development"
 brew install --HEAD valgrind
 echo "installing sshpas"
 brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
+echo "installing brew deps"
+brew bundle

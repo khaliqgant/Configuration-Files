@@ -46,7 +46,7 @@ function perf {
 }
 
 # conditionally load some google cloud stuff
-if [[ $(HOSTNAME) == "Khaliqs-MacBook-Pro.local" ]]; then
+if [[ $HOSTNAME == "Khaliqs-MacBook-Pro.local" ]]; then
     # The next line updates PATH for the Google Cloud SDK.
     source '/Users/khaliq/Development/google-cloud-sdk/path.zsh.inc'
     # The next line enables shell command completion for gcloud.
@@ -54,7 +54,7 @@ if [[ $(HOSTNAME) == "Khaliqs-MacBook-Pro.local" ]]; then
 fi
 
 # conditionally load in some project specific items for my work computer
-if [[ $(HOSTNAME) == "Khaliqs-MacBook-Pro.local" ]]; then
+if [[ $HOSTNAME == "Khaliqs-MacBook-Pro.local" ]]; then
     source '/Users/khaliq/Dropbox/KJG/Personal/Work/VMG/scripts/functions.zsh'
 fi
 

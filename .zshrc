@@ -108,3 +108,6 @@ source ~/Configuration-Files/zshes/histdb.zsh
 
 # Sauce labs shortuct, this depends on tab which is in functions.zsh
 alias sauce='tab "sites && cd sauce-labs && bin/sc -u vectormediagroup -k 355ea7db-9fe4-4bde-b729-878d75e3816c"'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
