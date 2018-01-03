@@ -55,7 +55,7 @@ fi
 
 # conditionally load in some project specific items for my work computer
 if [[ $(HOSTNAME) == "Khaliqs-MacBook-Pro.local" ]]; then
-    source '/Users/khaliq/Dropbox (Personal)/KJG/Personal/Work/VMG/scripts/functions.zsh'
+    source '/Users/khaliq/Dropbox/KJG/Personal/Work/VMG/scripts/functions.zsh'
 fi
 
 # load in local .bashrc.local if there

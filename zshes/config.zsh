@@ -6,5 +6,5 @@ alias .bundles='open -a Macvim ~/.vimrc.bundles.local'
 alias spf-vimrc='open -a Macvim ~/.spf13-vim-3/.vimrc'
 alias vim-bundle='cd ~/.spf13-vim-3/.vim/bundle'
 
-alias npmrc='(cd ~/ && ln -sf ~/Dropbox\ \(Personal\)/KJG/.npmrc .npmrc)'
+alias npmrc='(cd ~/ && ln -sf ~/Dropbox/KJG/.npmrc .npmrc)'
 
