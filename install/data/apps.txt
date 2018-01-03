@@ -39,3 +39,4 @@ sketch
 zoom
 sqlitebrowser
 kindle
+boostnote
