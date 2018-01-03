@@ -20,7 +20,7 @@ clipmenu
 rescuetime
 spectacle
 divvy
-cloud
+cloudapp
 firefox
 google-chrome
 spotify
