@@ -1,4 +1,4 @@
-packages=$(<data/gemss.txt)
+packages=$(<data/gems.txt)
 
 for package in $packages
 do
