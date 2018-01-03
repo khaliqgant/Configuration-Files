@@ -17,5 +17,9 @@ Bundle 'w0rp/ale'
 Bundle 'sbdchd/neoformat'
 Bundle 'Quramy/tsuquyomi'
 Bundle 'Shougo/vimproc.vim'
+Bundle 'tpope/vim-rhubarb'
 
+Plugin 'heracek/HTML-AutoCloseTag', {'name': 'HTML-AutoCloseTag2'}
+
+UnBundle 'amirh/HTML-AutoCloseTag'
 UnBundle 'Valloric/YouCompleteMe'
