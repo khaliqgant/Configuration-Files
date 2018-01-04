@@ -16,9 +16,6 @@ export PATH=~/Library/Python/2.7/bin:$PATH
 export GOPATH=/Users/khaliq/Sites/go
 export PATH=$PATH:$GOPATH/bin
 
-# nvm
-nvm use --delete-prefix v8.4.0 --silent
-
 # Ansible
 export PATH="/usr/local/opt/ansible@1.9/bin:$PATH"
 
