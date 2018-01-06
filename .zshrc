@@ -52,31 +52,6 @@ export EDITOR="$VISUAL"
 # KJG's Customization
 #####################
 
-# restart the shell
-alias restart='exec -l $SHELL'
-
-#Vim
-alias vim='open -a Macvim'
-alias v='vim .'
-
-# Build tools
-alias big:gulp='(cd $(dirname $(find . -maxdepth 2 -name gulpfile.js)) && gulp)'
-alias bower:install='(cd $(dirname $(find . -maxdepth 2 -name bower.json)) && bower install)'
-alias bower:update='(cd $(dirname $(find . -maxdepth 2 -name bower.json)) && bower update)'
-
-# ExpressionEngine
-alias eecli='vendor/bin/eecli'
-alias sync:db='remotee-sync --env=production -d'
-alias save:db='remotee-sync --env=production -s --file=$(basename `git rev-parse --show-toplevel`)_$(date +%m-%d).sql --sync=no -d'
-
-# Docker, paths in path.zsh
-alias es-local='sites && cd es-docker && boot2docker up && docker start es'
-alias es-local:stop='sites && cd es-docker && docker stop es && boot2docker stop'
-
-# MySQL
-alias mysql="/Applications/MAMP/Library/bin/mysql"
-alias mysqldump="/Applications/MAMP/Library/bin/mysqldump"
-
 # Terminal Settings
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -v
