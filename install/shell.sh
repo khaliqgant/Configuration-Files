@@ -1,7 +1,3 @@
-echo "installing spf13"
-$dry curl http://j.mp/spf13-vim3 -L -o - | $dry sh
-($dry cd ~/.vim/bundle/vimproc.vim && make)
-echo "setting symlinks"
 sh symlinks.sh
 echo "adding zsh plugins"
 zshes=$(<data/zshPlugins.txt)
@@ -13,3 +9,7 @@ done
 
 echo "copying zsh config to plugins"
 $dry cp ~/Configuration-Files/install/config/zsh/* ~/.oh-my-zsh/custom/
+
+echo "setting tab to be able to navigate menu items"
+# https://superuser.com/questions/473143/how-to-tab-between-buttons-on-an-mac-os-x-dialog-box
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
