@@ -73,7 +73,7 @@ augroup vimrc_autocmds
 augroup END
 
 " Prettier neoformatting
-autocmd BufWritePre *.ts Neoformat
+"autocmd BufWritePre *.ts Neoformat
 autocmd BufWritePre *.js Neoformat
 
 " Set syntax highlighting for scala

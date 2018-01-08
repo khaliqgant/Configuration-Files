@@ -82,5 +82,5 @@ sshcd() {
 }
 
 generate_invoice() {
-    sh ~/Sites/invoice-generator/generate.sh
+    sh ~/Dropbox/KJG/Development/invoice-generator/generate.sh
 }
