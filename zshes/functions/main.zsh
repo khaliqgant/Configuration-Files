@@ -66,15 +66,6 @@ alias show:bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && cat $(find .
 alias start="sh ~/Configuration-Files/scripts/start.sh"
 alias copyPrepareCommit="sh ~/Configuration-Files/scripts/copyPrepareCommit.sh"
 
-update_nvm() {
-    #n=$(which node);n=${n%/bin/node}; chmod -R 755 $n/bin/*; sudo cp -r $n/{bin,lib,share} /usr/local 
-    # grab first line and remove whitespace
-    # http://stackoverflow.com/questions/13659318/how-to-remove-space-from-string
-    current_node=$(nvm ls | sed -n '1 p' | tr -d ' ')
-    #ln -sfvn /Users/khaliq/.nvm/$current_node/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/
-    ln -sfvn /Users/khaliq/.nvm/v0.10.40/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
-}
-
 # navigate to a directory as soon as you ssh in
 # invoke by sshcd server-alias:directory/to/navigate/to
 sshcd() {
