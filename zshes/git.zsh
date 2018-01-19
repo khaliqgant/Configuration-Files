@@ -14,7 +14,7 @@ alias stash:list='git stash list --date=local'
 alias stash-all='git stash --include-untracked'
 alias pop='git stash pop'
 alias new='git checkout -b'
-alias reset='git reset --hard origin/master'
+alias reset="git reset --hard $1"
 # take you to the top of the git repo
 alias root='cd "`git rev-parse --show-toplevel`"'
 
