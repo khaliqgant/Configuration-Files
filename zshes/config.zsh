@@ -2,7 +2,6 @@
 alias restart='exec -l $SHELL'
 
 #Vim
-alias vim='/Applications/Macvim.app/Contents/MacOs/Vim'
 alias v='open -a Macvim .'
 
 # Build tools
