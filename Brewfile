@@ -69,3 +69,4 @@ brew 'amazon-ecs-cli'
 brew 'hadolint'
 brew 'vale'
 brew 'yarn'
+brew 'vim', args: ['with-lua']
