@@ -6,3 +6,6 @@ do
         $dry ln -sf "$file" ~/
     fi;
 done
+
+echo "Copying AWS creds"
+$dry ln -sf ~/Dropbox/KJG/.aws ~/
