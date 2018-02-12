@@ -70,3 +70,4 @@ brew 'hadolint'
 brew 'vale'
 brew 'yarn'
 brew 'vim', args: ['with-lua']
+brew 'terraform'
