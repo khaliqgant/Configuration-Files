@@ -17,6 +17,10 @@ mkd() {
     cd $1
 }
 
+octal() {
+    stat -f "%Sp %OLp" $1
+}
+
 # quickly find files and directory
 alias ff='find . -type f -name'
 alias fd='find . -type d -name'
