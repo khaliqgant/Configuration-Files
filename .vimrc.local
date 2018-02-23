@@ -56,6 +56,9 @@ let g:syntastic_typescript_checkers = ['tsuquyomi']
 " https://github.com/Quramy/tsuquyomi/issues/174
 let g:tsuquyomi_use_vimproc=1
 
+" https://github.com/hashivim/vim-terraform
+let g:terraform_align=1
+
 " Allow ejs files to be read as html
 " ref: http://stackoverflow.com/questions/4597721/syntax-highlight-for-ejs-files-in-vim
 "set au BufNewFile,BufRead *.ejs set filetype=html

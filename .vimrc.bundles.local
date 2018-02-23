@@ -18,6 +18,7 @@ Bundle 'sbdchd/neoformat'
 Bundle 'Quramy/tsuquyomi'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'tpope/vim-rhubarb'
+Bundle 'hashivim/vim-terraform'
 
 Plugin 'heracek/HTML-AutoCloseTag', {'name': 'HTML-AutoCloseTag2'}
 
