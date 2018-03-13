@@ -76,3 +76,4 @@ brew 'vim', args: ['with-lua']
 brew 'terraform'
 brew 'amazon-ecs-cli'
 brew 'jmespath'
+brew 'translate-shell'
