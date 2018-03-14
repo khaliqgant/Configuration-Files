@@ -75,3 +75,9 @@ sshcd() {
 generate_invoice() {
     sh ~/Dropbox/KJG/Development/invoice-generator/generate.sh
 }
+
+# Translations uses https://github.com/soimort/translate-shell
+# Norwegian to English
+betyr() {
+    trans -l no :en $1
+}
