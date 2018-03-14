@@ -79,5 +79,5 @@ generate_invoice() {
 # Translations uses https://github.com/soimort/translate-shell
 # Norwegian to English
 betyr() {
-    trans -l no :en $1 --show-original=no
+    trans -l no :en $1 --show-original=no -source no
 }
