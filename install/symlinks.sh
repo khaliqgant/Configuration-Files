@@ -9,3 +9,6 @@ done
 
 echo "Copying AWS creds"
 $dry ln -sf ~/Dropbox/KJG/.aws ~/
+
+echo "Copying Hosts file"
+$dry sudo ln -sf ~/Dropbox/KJG/hosts /etc
