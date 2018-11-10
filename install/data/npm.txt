@@ -19,3 +19,4 @@ markdown-pdf
 xml2json-cli
 ttab
 prettier
+fx

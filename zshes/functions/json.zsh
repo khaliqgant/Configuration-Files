@@ -20,3 +20,12 @@ function filter() {
 function minify() {
     pbpaste | jq -c '.' $@ | pbcopy
 }
+
+# leverages https://github.com/antonmedv/fx
+function inspect() {
+    pbpaste | fx
+}
+
+function getJson() {
+    curl -s $@ | fx
+}
