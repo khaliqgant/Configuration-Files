@@ -96,6 +96,10 @@ unlet g:ctrlp_custom_ignore
 unlet g:ctrlp_user_command
 let g:ctrlp_use_caching=0
 
+" Forever store undos
+set undofile
+set undodir=~/.vim/undodir
+
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 

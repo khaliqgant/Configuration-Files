@@ -45,6 +45,9 @@ source ~/Configuration-Files/zshes/deploy.zsh
 # load git aliases
 source ~/Configuration-Files/zshes/git.zsh
 
+# load docker shortcuts
+source ~/Configuration-Files/zshes/docker.zsh
+
 # load in path exports
 source ~/Configuration-Files/zshes/path.zsh
 
