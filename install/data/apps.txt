@@ -42,3 +42,8 @@ whatsapp
 zoomus
 zooom
 minikube
+qlmarkdown
+quicklook-json
+qlvideo
+qlcolorcode
+qlstephen
