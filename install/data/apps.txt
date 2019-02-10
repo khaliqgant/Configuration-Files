@@ -47,3 +47,4 @@ quicklook-json
 qlvideo
 qlcolorcode
 qlstephen
+atom
