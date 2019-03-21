@@ -1,6 +1,5 @@
 grunt-cli
 gulp
-instant-markdown-d
 mocha
 npm-css
 remotee-sync
