@@ -26,5 +26,5 @@ show_local_history() {
 }
 
 search_local_history() {
-    show_local_history | ack "$1"
+    show_local_history 100 | ack "$1"
 }
