@@ -48,3 +48,4 @@ qlvideo
 qlcolorcode
 qlstephen
 atom
+karabiner-elements
