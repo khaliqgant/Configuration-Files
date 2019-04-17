@@ -233,6 +233,28 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "left option + left shift + z -> launches Zoom",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "z",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option",
+                                            "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a \"zoom.us\""
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
