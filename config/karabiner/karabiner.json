@@ -15,7 +15,7 @@
                 },
                 "rules": [
                     {
-                        "description": "left option + left shift + ` (backtick) - launches a new iTerm2 window with the default profile",
+                        "description": "left option + left shift + ` (backtick) - launches a new Terminal window with the default profile",
                         "manipulators": [
                             {
                                 "from": {
@@ -29,7 +29,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "osascript -e 'tell app \"iTerm2\"' -e 'create window with default profile' -e activate -e end"
+                                        "shell_command": "osascript -e 'tell app \"Terminal\"' -e 'create window with default profile' -e activate -e end"
                                     }
                                 ],
                                 "type": "basic"
@@ -125,7 +125,7 @@
                         ]
                     },
                     {
-                        "description": "left option + left shift + t -> launches iTerm",
+                        "description": "left option + left shift + t -> launches Terminal",
                         "manipulators": [
                             {
                                 "from": {
@@ -139,7 +139,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a iTerm"
+                                        "shell_command": "open -a Terminal"
                                     }
                                 ],
                                 "type": "basic"
