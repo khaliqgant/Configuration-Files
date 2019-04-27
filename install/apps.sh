@@ -4,6 +4,9 @@ $dry ruby -e "$($dry curl -fsSL https://raw.githubusercontent.com/Homebrew/insta
 $dry brew install caskroom/cask/brew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+echo "Hiding dock permanently"
+$dry defaults write com.apple.dock tilesize -int 1 && $dry killall Dock
+
 # install all the apps
 apps=$(<data/apps.txt)
 echo "Installing apps on apps on apps"
