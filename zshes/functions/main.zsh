@@ -77,3 +77,7 @@ sshcd() {
 betyr() {
     trans -l no :en $1 --show-original=no -source no
 }
+# French to English
+traduit() {
+    trans -l fr :en $1 --show-original=no -source fr
+}

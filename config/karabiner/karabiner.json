@@ -29,7 +29,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "osascript -e 'tell app \"Terminal\"' -e 'create window with default profile' -e activate -e end"
+                                        "shell_command": "osascript -e 'tell app \"Terminal\"' -e 'do script' -e activate -e end"
                                     }
                                 ],
                                 "type": "basic"
