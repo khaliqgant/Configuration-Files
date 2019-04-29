@@ -49,3 +49,4 @@ qlcolorcode
 qlstephen
 atom
 karabiner-elements
+bitbar
