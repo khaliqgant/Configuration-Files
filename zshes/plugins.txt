@@ -10,7 +10,6 @@ jsontools
 last-working-dir
 npm
 osx
-terminalapp
 vi-mode
 zsh-256color
 zsh-autosuggestions
