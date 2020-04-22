@@ -51,3 +51,4 @@ atom
 karabiner-elements
 bitbar
 bluetoothconnector
+figma
