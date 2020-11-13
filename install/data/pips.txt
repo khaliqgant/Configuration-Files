@@ -2,6 +2,5 @@ fabric
 virtualenv
 requests
 grip
-awscli
 ansible-lint
 csvkit

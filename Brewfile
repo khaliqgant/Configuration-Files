@@ -74,6 +74,7 @@ brew 'vale'
 brew 'yarn'
 brew 'vim', args: ['with-lua']
 brew 'amazon-ecs-cli'
+brew 'awscli'
 brew 'jmespath'
 brew 'translate-shell'
 brew 'postgresql'
