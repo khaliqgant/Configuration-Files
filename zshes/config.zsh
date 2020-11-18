@@ -33,3 +33,9 @@ alias vim-bundle='cd ~/.spf13-vim-3/.vim/bundle'
 alias npmrc='(cd ~/ && ln -sf ~/Dropbox/KJG/.npmrc .npmrc)'
 
 alias local_scripts="open -a Macvim ~/Dropbox/KJG/Development/scripts.zsh"
+
+awsv() {
+    client=$1
+    shift
+    aws-vault exec $client -- $@
+}
