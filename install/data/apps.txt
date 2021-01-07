@@ -53,3 +53,4 @@ bitbar
 bluetoothconnector
 figma
 aws-vault
+krisp
