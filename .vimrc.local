@@ -52,6 +52,8 @@ let g:javascript_plugin_jsdoc = 1
 
 " tsuquyomi https://github.com/Quramy/tsuquyomi
 let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_use_local_typescript = 1
+let g:tsuquyomi_use_dev_node_module = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 " https://github.com/Quramy/tsuquyomi/issues/174
 let g:tsuquyomi_use_vimproc=1

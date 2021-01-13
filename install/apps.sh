@@ -12,7 +12,7 @@ apps=$(<data/apps.txt)
 echo "Installing apps on apps on apps"
 for app in $apps
 do
-    $dry brew cask install $app
+    $dry brew install --cask $app
 done
 echo "installing macvim with lua support see https://github.com/Shougo/neocomplete.vim#vim-for-mac-os-x"
 brew install macvim --with-cscope --with-lua
