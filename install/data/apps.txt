@@ -18,9 +18,10 @@ droplr
 figma
 firefox
 github
-google-backup-and-sync
+google-photos-backup-and-sync
 google-chrome
 google-drive
+google-drive-file-stream
 hyperdock
 istat-menus
 iterm2

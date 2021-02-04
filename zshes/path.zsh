@@ -3,7 +3,7 @@ export SHELL=/bin/zsh
 export PATH=~/.composer/vendor/bin:$PATH
 
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export PATH=/Applications/MAMP/bin/php/php5.6.30/bin:$PATH #MAMP PHI setting for Composer
+#export PATH=/Applications/MAMP/bin/php/php5.6.30/bin:$PATH #MAMP PHI setting for Composer
 #export PATH=/Applications/MAMP/bin/php/php7.1.1/bin:$PATH #MAMP PHI setting for Composer
 export PATH=/usr/local/share/npm/bin:$PATH #Setting to use Grunt
 export PATH=~/npm/bin:$PATH #Because installed node w/o homebrew add the npm path from the local usr
@@ -22,8 +22,14 @@ export PATH=$PATH:$GOPATH/bin
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
+# phpbrew
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+
 # Ansible
 export PATH="/usr/local/opt/ansible@1.9/bin:$PATH"
 
 # Brewfile
 export HOMEBREW_BREWFILE=~/Configuration-Files/Brewfile
+
+# PHP
+export PATH=/usr/local/opt/php@7.2/bin:$PATH
