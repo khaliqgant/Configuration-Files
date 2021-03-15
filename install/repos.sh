@@ -10,12 +10,3 @@ for repo in $repos
 do
     ($dry cd $sites && $dry git clone $repo)
 done
-
-
-work=~/Google\ Drive/Code/
-work_repos=$(<$work/repos.txt)
-
-for repo in $work_repos
-do
-    ($dry cd $sites && $dry git clone $repo)
-done
