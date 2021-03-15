@@ -3,7 +3,7 @@ Oh, new computer?? You fancy huh?
 
 ## Steps
 1. Install Dropbox & Git
-2. Once have dropbox set up, run the start.sh there
+2. Once have dropbox set up, run setup.sh and then start.sh there
 3. Clone this repo and run install/run.sh (this gets called automatically from the start.sh from above)
 4. run.sh then calls a few different shell scripts which will install apps on apps on apps
 
