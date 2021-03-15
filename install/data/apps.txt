@@ -7,10 +7,8 @@ bitbar
 bluetoothconnector
 boostnote
 chefdk
-clipmenu
 clipy
 cloudapp
-codebox
 db-browser-for-sqlite
 divvy
 docker
