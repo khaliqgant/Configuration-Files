@@ -28,6 +28,7 @@ karabiner-elements
 kindle
 krisp
 lastfm
+macvim
 mamp
 meetingbar
 microsoft-trams
