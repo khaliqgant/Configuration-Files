@@ -9,7 +9,11 @@ export dry=$dry
 
 
 echo "copying iterm fonts"
-$dry cp iterm/fonts/source-code-pro-1.017R/* /Library/Fonts/
+$dry cp -R iterm/fonts/source-code-pro-1.017R/* /Library/Fonts/
+
+echo "copying over terminal setting"
+$dry open ./terminal/profiles/dev.terminal
+$dry defaults write com.apple.terminal "Default Window Settings" "dev"
 
 cd install
 echo "downloading cli and vim items"

@@ -36,7 +36,6 @@ minikube
 postman
 psequel
 qlcolorcode
-qlmarkdown
 qlstephen
 qlvideo
 quicklook-json
@@ -59,3 +58,4 @@ vlc
 whatsapp
 zoomus
 zooom
+docker

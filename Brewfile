@@ -1,8 +1,3 @@
-tap 'homebrew/brewdler'
-tap 'homebrew/dupes'
-tap 'homebrew/php'
-tap 'homebrew/versions'
-tap 'ValeLint/vale'
 tap 'jmespath/jmespath'
 brew 'ack'
 brew 'libyaml'
