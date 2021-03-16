@@ -3,7 +3,6 @@ alfred
 atom
 aws-vault
 bartender
-bitbar
 bluetoothconnector
 boostnote
 chefdk
