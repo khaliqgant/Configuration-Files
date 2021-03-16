@@ -36,3 +36,5 @@ echo "installing global composer packages"
 sh composer.sh
 echo "installing pips"
 sh pip.sh
+echo "starting mysql"
+sh mysql.sh

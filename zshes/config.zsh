@@ -18,10 +18,6 @@ alias save:db='remotee-sync --env=production -s --file=$(basename `git rev-parse
 alias es-local='sites && cd es-docker && boot2docker up && docker start es'
 alias es-local:stop='sites && cd es-docker && docker stop es && boot2docker stop'
 
-# MySQL
-alias mysql="/Applications/MAMP/Library/bin/mysql"
-alias mysqldump="/Applications/MAMP/Library/bin/mysqldump"
-
 alias ssh-config='open -a Macvim ~/.ssh/config'
 alias show:ssh-config='cat ~/.ssh/config'
 alias .zshrc='open -a Macvim ~/.zshrc'
