@@ -41,6 +41,7 @@ quicklook-json
 recordit
 rescuetime
 sequel-pro
+sequel-ace
 sketch
 skype
 slack
