@@ -30,7 +30,7 @@ lastfm
 macvim
 mamp
 meetingbar
-microsoft-trams
+microsoft-teams
 minikube
 postman
 psequel
@@ -56,5 +56,5 @@ virtualbox
 vlc
 whatsapp
 zoomus
-zooom
+zoom
 docker

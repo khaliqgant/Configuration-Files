@@ -5,3 +5,5 @@ do
     $dry npm install -g $package
 done
 
+$dry nvm install-latest-npm
+
