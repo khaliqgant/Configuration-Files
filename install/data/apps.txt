@@ -11,14 +11,15 @@ cloudapp
 db-browser-for-sqlite
 divvy
 docker
+docker
 droplr
 figma
 firefox
 github
-google-photos-backup-and-sync
 google-chrome
 google-drive
 google-drive-file-stream
+google-photos-backup-and-sync
 hyperdock
 istat-menus
 iterm2
@@ -26,10 +27,8 @@ java
 karabiner-elements
 kindle
 krisp
-lastfm
 macvim
 mamp
-meetingbar
 microsoft-teams
 minikube
 postman
@@ -40,8 +39,8 @@ qlvideo
 quicklook-json
 recordit
 rescuetime
-sequel-pro
 sequel-ace
+sequel-pro
 sketch
 skype
 slack
@@ -56,6 +55,5 @@ vagrant
 virtualbox
 vlc
 whatsapp
-zoomus
 zoom
-docker
+zoomus
