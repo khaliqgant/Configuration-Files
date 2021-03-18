@@ -3,3 +3,4 @@ git@github.com:lukechilds/zsh-nvm.git
 git://github.com/zsh-users/zsh-autosuggestions
 https://github.com/chrissicool/zsh-256color
 https://github.com/larkery/zsh-histdb
+https://github.com/zsh-users/zsh-completions

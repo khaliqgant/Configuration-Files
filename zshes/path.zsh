@@ -30,3 +30,6 @@ export PATH="/usr/local/opt/ansible@1.9/bin:$PATH"
 
 # Brewfile
 export HOMEBREW_BREWFILE=~/Configuration-Files/Brewfile
+
+# kubectx
+autoload -U compinit && compinit
