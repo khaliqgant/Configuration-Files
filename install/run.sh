@@ -38,3 +38,5 @@ echo "installing pips"
 sh pip.sh
 echo "starting mysql"
 sh mysql.sh
+echo "setup installed apps"
+sh app_setup.sh
