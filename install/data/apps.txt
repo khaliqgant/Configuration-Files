@@ -9,6 +9,7 @@ chefdk
 clipy
 cloudapp
 db-browser-for-sqlite
+dbngin
 divvy
 docker
 docker
@@ -57,3 +58,4 @@ vlc
 whatsapp
 zoom
 zoomus
+

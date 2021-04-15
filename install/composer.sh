@@ -8,3 +8,4 @@ do
     $dry composer global require $package
 done
 
+sudo valet install

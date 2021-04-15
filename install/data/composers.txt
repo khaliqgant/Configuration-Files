@@ -1,3 +1,4 @@
 phpunit/phpunit
 laravel/installer
+laravel/valet
 squizlabs/php_codesniffer
