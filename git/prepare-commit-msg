@@ -7,6 +7,7 @@ fi
 BRANCH_NAME=$(git symbolic-ref --short HEAD)
 BRANCH_NAME=$(echo $BRANCH_NAME | sed 's/.*feat\/ //g')
 BRANCH_NAME=$(echo $BRANCH_NAME | sed 's/.*feature\/ //g')
+BRANCH_NAME=$(echo $BRANCH_NAME | sed -r 's/([aA-zZ]+-[0-9]+)[-].*/\1/')
 BRANCH_NAME="${BRANCH_NAME##*/}"
 
 BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
