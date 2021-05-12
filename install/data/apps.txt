@@ -5,6 +5,7 @@ aws-vault
 bartender
 bluetoothconnector
 boostnote
+cakebrew
 chefdk
 clipy
 cloudapp

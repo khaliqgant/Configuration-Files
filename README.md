@@ -16,7 +16,7 @@ ln -s .* ~/
 * Using [Vim Instant Markdown](https://github.com/suan/vim-instant-markdown) to open up an instant preview
     run ```InstantMarkdownPreview```
 * Making use of [YouCompleteMe](https://github.com/Valloric/YouCompleteMe). Steps:
-    1. Add to Vundle (.vimrc-bundles.loca)
+    1. Add to Vundle (.vimrc-bundles.local)
     2. cd into the YouCompleteMe directory and run
         ```
         ./install.sh --clang-completer
