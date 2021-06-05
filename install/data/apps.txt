@@ -8,7 +8,6 @@ boostnote
 cakebrew
 chefdk
 clipy
-cloudapp
 db-browser-for-sqlite
 dbngin
 divvy
