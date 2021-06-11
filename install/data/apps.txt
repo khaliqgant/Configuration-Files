@@ -42,7 +42,6 @@ recordit
 rescuetime
 sequel-ace
 sequel-pro
-sketch
 skype
 slack
 spectacle

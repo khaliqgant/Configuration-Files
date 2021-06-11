@@ -5,7 +5,6 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'xolox/vim-misc'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'fatih/vim-go'
 Bundle 'lervag/vim-latex'
 Bundle 'HerringtonDarkholme/yats.vim'
@@ -19,8 +18,8 @@ Bundle 'Quramy/tsuquyomi'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'tpope/vim-rhubarb'
 Bundle 'hashivim/vim-terraform'
+Bundle 'ycm-core/YouCompleteMe'
 
 Plugin 'heracek/HTML-AutoCloseTag', {'name': 'HTML-AutoCloseTag2'}
 
 UnBundle 'amirh/HTML-AutoCloseTag'
-UnBundle 'Valloric/YouCompleteMe'

@@ -5,4 +5,5 @@ do
     $dry gem install $package
 done
 
-
+# install jekyll
+gem install --user-install bundler jekyll
