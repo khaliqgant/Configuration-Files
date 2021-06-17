@@ -32,6 +32,7 @@ bindkey -v
 
 # History
 source ~/Configuration-Files/zshes/history.zsh
+source ~/Configuration-Files/zshes/clipboardHistory.zsh
 
 # Folder Nav
 source ~/Configuration-Files/zshes/folder-nav.zsh
