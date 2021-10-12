@@ -35,3 +35,8 @@ awsv() {
     shift
     aws-vault exec $client -- $@
 }
+
+# Usage replaceInFiles '*.tsx' 'Dashboard' 'DashboardMenu'
+replaceInFiles() {
+    find . -type f -name "$1" -print0 | xargs -0 sed -i '' -e "s/$2/$3/g"
+}
