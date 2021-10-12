@@ -25,9 +25,9 @@ history left join commands on history.command_id = commands.rowid
 left join places on history.place_id = places.rowid
 where (places.dir LIKE '$(sql_escape $PWD)%' OR 1=1)
 and commands.argv LIKE '$(sql_escape $1)%'
-group by commands.argv 
-order by count(*) desc, 
-places.dir LIKE '$(sql_escape $PWD)%' desc 
+group by commands.argv
+order by count(*) desc,
+places.dir LIKE '$(sql_escape $PWD)%' desc
 limit 1"
     suggestion=$(_histdb_query "$query")
 }
