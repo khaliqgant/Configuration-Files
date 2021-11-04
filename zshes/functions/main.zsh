@@ -81,3 +81,14 @@ betyr() {
 traduit() {
     trans -l fr :en $1 --show-original=no -source fr
 }
+
+awsv() {
+    client=$1
+    shift
+    aws-vault exec $client -- $@
+}
+
+# Usage replaceInFiles '*.tsx' 'Dashboard' 'DashboardMenu'
+replaceInFiles() {
+    find . -type f -name "$1" -print0 | xargs -0 sed -i '' -e "s/$2/$3/g"
+}

@@ -29,14 +29,3 @@ alias vim-bundle='cd ~/.spf13-vim-3/.vim/bundle'
 alias npmrc='(cd ~/ && ln -sf ~/Dropbox/KJG/.npmrc .npmrc)'
 
 alias local_scripts="open -a Macvim ~/Dropbox/KJG/Development/scripts.zsh"
-
-awsv() {
-    client=$1
-    shift
-    aws-vault exec $client -- $@
-}
-
-# Usage replaceInFiles '*.tsx' 'Dashboard' 'DashboardMenu'
-replaceInFiles() {
-    find . -type f -name "$1" -print0 | xargs -0 sed -i '' -e "s/$2/$3/g"
-}
