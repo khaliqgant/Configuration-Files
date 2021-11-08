@@ -9,7 +9,7 @@ jira
 jsontools
 last-working-dir
 npm
-osx
+macos
 vi-mode
 zsh-256color
 zsh-autosuggestions
