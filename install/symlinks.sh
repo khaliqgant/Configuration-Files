@@ -12,3 +12,6 @@ $dry ln -sf ~/Dropbox/KJG/.aws ~/
 
 echo "Copying Hosts file"
 $dry sudo ln -sf ~/Dropbox/KJG/hosts /etc
+
+echo "restoring karabiner config"
+$dry ln -s ~/Configuration-Files/config/karabiner ~/.config
