@@ -4,3 +4,4 @@ requests
 grip
 ansible-lint
 csvkit
+pipenv
