@@ -32,6 +32,7 @@ macvim
 mamp
 microsoft-teams
 minikube
+notion
 postman
 psequel
 qlcolorcode
