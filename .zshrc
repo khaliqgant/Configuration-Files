@@ -14,8 +14,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-[[ -s /etc/profile.d/autojump.sh ]] && . /etc/profile.d/autojump.sh
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 # set vim as editor
 export VISUAL=vim

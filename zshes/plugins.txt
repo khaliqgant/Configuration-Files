@@ -1,7 +1,8 @@
 aws
-bower
+autojump
 brew
 docker
+dotenv
 git
 git-extras
 history
