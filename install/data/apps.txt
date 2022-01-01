@@ -19,7 +19,6 @@ google-drive
 istat-menus
 iterm2
 java
-karabiner-elements
 kindle
 macvim
 microsoft-teams
