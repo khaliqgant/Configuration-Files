@@ -2,7 +2,6 @@ aws
 autojump
 brew
 docker
-dotenv
 git
 git-extras
 history
