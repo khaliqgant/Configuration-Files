@@ -1,6 +1,8 @@
 export SHELL=/bin/zsh
-# item for eecli
-export PATH=~/.composer/vendor/bin:$PATH
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=/usr/local/share/npm/bin:$PATH #Setting to use Grunt
@@ -8,11 +10,8 @@ export PATH=~/npm/bin:$PATH #Because installed node w/o homebrew add the npm pat
 export PATH=~/.node/bin:$PATH #add path for npm install modules
 export PATH=/usr/texbin:$PATH #Add latex to path
 export PATH=/usr/local/sbin:$PATH
-export PATH=~/Library/Python/3.6/bin:$PATH
-export PATH=~/Library/Python/3.9/bin:$PATH
-export PATH=/usr/local/opt/python@3.7/bin:$PATH
-export PATH=/usr/local/opt/postgresql@10/bin:$PATH
-export PATH=/Users/Shared/DBngin/postgresql/12.2/bin:$PATH
+export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
+export PATH=/opt/homebrew/bin/php/bin:$PATH
 
 #Go
 export GOPATH=/Users/khaliq/Sites/go

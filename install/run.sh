@@ -20,8 +20,6 @@ echo "downloading cli and vim items"
 sh shell.sh
 echo "setting vim settings"
 sh vim.sh
-echo "setting up php setup"
-sh php-setup.sh
 echo "setting up ruby setup"
 sh rvm-setup.sh
 echo "downloading homebrew and cask apps"
@@ -34,6 +32,8 @@ echo "restoring mackup settings"
 $dry mackup restore
 echo "installing global composer packages"
 sh composer.sh
+echo "setting up python using pyenv"
+sh python-setup.sh
 echo "installing pips"
 sh pip.sh
 echo "starting mysql"
