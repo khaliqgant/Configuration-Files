@@ -14,7 +14,7 @@ export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
 export PATH=/opt/homebrew/bin/php/bin:$PATH
 
 #Go
-export GOPATH=/Users/khaliq/Sites/go
+export GOPATH=/Users/khaliqgant/Sites/go
 export PATH=$PATH:$GOPATH/bin
 
 # NVM
