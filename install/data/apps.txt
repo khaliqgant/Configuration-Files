@@ -44,5 +44,6 @@ vagrant
 virtualbox
 vlc
 whatsapp
+xbar
 zoom
 zoomus
