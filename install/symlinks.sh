@@ -13,5 +13,9 @@ $dry ln -sf ~/Dropbox/KJG/.aws ~/
 echo "Copying Hosts file"
 $dry sudo ln -sf ~/Dropbox/KJG/hosts /etc
 
-echo "restoring karabiner config"
-$dry ln -s ~/Configuration-Files/config/karabiner ~/.config
+echo "Copying over global git igore"
+$dry ln -sf .global-gitigore ~/.gitignore
+
+
+#echo "restoring karabiner config"
+#$dry ln -s ~/Configuration-Files/config/karabiner ~/.config
