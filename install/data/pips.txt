@@ -5,3 +5,4 @@ grip
 ansible-lint
 csvkit
 pipenv
+ansible
