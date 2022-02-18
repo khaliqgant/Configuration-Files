@@ -23,3 +23,7 @@ alias root='cd "`git rev-parse --show-toplevel`"'
 purge-branches() {
     git branch --merged | grep -v '\*' | xargs -n 1 git branch -d
 }
+
+issue () {
+    new "gh-#$1"
+}
