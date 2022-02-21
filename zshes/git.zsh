@@ -27,3 +27,8 @@ purge-branches() {
 issue () {
     new "gh-#$1"
 }
+
+sync () {
+    ggpull
+    fetch && purge-branches
+}
