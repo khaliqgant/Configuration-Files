@@ -20,6 +20,7 @@ istat-menus
 iterm2
 java
 kindle
+lepton
 macvim
 microsoft-teams
 minikube
