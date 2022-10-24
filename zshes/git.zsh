@@ -6,7 +6,7 @@ alias pull='git pull origin'
 alias status='git status'
 alias co='git checkout'
 # open the github app
-alias gh='github'
+alias gt='github'
 # reference : http://git-scm.com/docs/git-clean
 alias clean='git clean -f -d'
 alias stash='git stash'
