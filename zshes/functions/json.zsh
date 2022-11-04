@@ -30,6 +30,6 @@ function getJson() {
     curl -s $@ | fx
 }
 
-function escape() {
-    pbpaste | jq @json
+function escapeJson() {
+    pbpaste | jq @json | pbcopy
 }
