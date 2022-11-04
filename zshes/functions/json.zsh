@@ -29,3 +29,7 @@ function inspect() {
 function getJson() {
     curl -s $@ | fx
 }
+
+function escape() {
+    pbpaste | jq @json
+}
