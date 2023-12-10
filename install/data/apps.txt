@@ -21,6 +21,7 @@ iterm2
 java
 kindle
 lepton
+linear
 macvim
 microsoft-teams
 minikube
