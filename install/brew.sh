@@ -1,4 +1,5 @@
 $dry brew tap Homebrew/bundle
+$dry brew tap heroku/brew
 cd ..
 $dry brew bundle
 cd -
