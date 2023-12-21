@@ -19,3 +19,5 @@ xml2json-cli
 ttab
 prettier
 fx
+mintlify
+localtunnell
