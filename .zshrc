@@ -81,3 +81,17 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# pnpm
+export PNPM_HOME="/Users/khaliqgant/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/khaliqgant/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/khaliqgant/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/khaliqgant/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/khaliqgant/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

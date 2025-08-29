@@ -12,6 +12,7 @@ export PATH=/usr/texbin:$PATH #Add latex to path
 export PATH=/usr/local/sbin:$PATH
 export PATH=/opt/homebrew/bin/php/bin:$PATH
 export PATH=/Users/Shared/DBngin/postgresql/15.1/bin:$PATH
+export PATH=$PATH:/Users/khaliqgant/bin # terraform switch
 
 #Go
 export GOPATH=/Users/khaliqgant/Sites/go
