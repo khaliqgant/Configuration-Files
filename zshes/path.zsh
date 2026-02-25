@@ -14,6 +14,8 @@ export PATH=/opt/homebrew/bin/php/bin:$PATH
 export PATH=/Users/Shared/DBngin/postgresql/15.1/bin:$PATH
 export PATH=$PATH:/Users/khaliqgant/bin # terraform switch
 
+[ -z "$HOSTNAME" ] && export HOSTNAME="$(hostname)"
+
 #Go
 export GOPATH=/Users/khaliqgant/Sites/go
 export PATH=$PATH:$GOPATH/bin
@@ -39,3 +41,12 @@ autoload -U compinit && compinit
 
 # JAVA
 export JAVA_HOME=$(/usr/libexec/java_home)
+
+# AI Agent Tools
+export PATH="$PATH:$HOME/Projects/ai-tooling/agent-tools/brave-search"
+export PATH="$PATH:$HOME/Projects/ai-tooling/agent-tools/search-tools"
+export PATH="$PATH:$HOME/Projects/ai-tooling/agent-tools/browser-tools"
+export PATH="$PATH:$HOME/Projects/ai-tooling/agent-tools/vscode"
+
+# Rust
+source "$HOME/.cargo/env"

@@ -95,3 +95,27 @@ if [ -f '/Users/khaliqgant/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/khaliqgant/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/khaliqgant/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# bun completions
+[ -s "/Users/khaliqgant/.bun/_bun" ] && source "/Users/khaliqgant/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/Users/khaliqgant/.opencode/bin:$PATH
+export PATH="/Users/khaliqgant/.local/bin:$PATH"
+
+# Added by flyctl installer
+export FLYCTL_INSTALL="/Users/khaliqgant/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# omnara
+export OMNARA_INSTALL="$HOME/.omnara"
+export PATH="$OMNARA_INSTALL/bin:$PATH"
+export PATH="$(npm config get prefix)/bin:$PATH"
+
+source /Users/khaliqgant/.daytona.completion_script.zsh
