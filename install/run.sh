@@ -9,6 +9,16 @@ fi
 # export dry for the other scripts
 export dry=$dry
 
+# Create ~/Dropbox symlink to the actual Dropbox path
+# Update DROPBOX_PATH below to match your Dropbox folder location
+DROPBOX_PATH="$HOME/Ingliq Dropbox/Khaliq Gant"
+if [ ! -L ~/Dropbox ] && [ -d "$DROPBOX_PATH" ]; then
+    echo "Creating ~/Dropbox symlink"
+    $dry ln -sf "$DROPBOX_PATH" ~/Dropbox
+elif [ -L ~/Dropbox ]; then
+    echo "~/Dropbox symlink already exists, skipping"
+fi
+
 # Ask for sudo password upfront and keep alive
 if [[ -z "$dry" ]]; then
     echo "Some steps require sudo. Enter your password now:"
@@ -43,6 +53,8 @@ echo "installing pips"
 bash pip.sh
 echo "installing gems"
 bash gem.sh
+echo "installing CLI tools (claude, amp)"
+bash cli-tools.sh
 echo "restoring mackup settings"
 $dry mackup restore
 echo "starting mysql"

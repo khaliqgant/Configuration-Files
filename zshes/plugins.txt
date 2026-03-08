@@ -13,6 +13,5 @@ macos
 vi-mode
 zsh-256color
 zsh-autosuggestions
-zsh-nvm
 kubectl
 zsh-completions

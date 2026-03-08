@@ -1,8 +1,5 @@
-fabric
-virtualenv
 requests
 grip
 ansible-lint
 csvkit
-pipenv
 ansible
