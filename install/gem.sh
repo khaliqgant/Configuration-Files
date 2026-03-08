@@ -1,9 +1,16 @@
+#!/usr/bin/env bash
+
 packages=$(<data/gems.txt)
 
 for package in $packages
 do
-    $dry gem install $package
+    if gem list -i "$package" &>/dev/null; then
+        echo "$package already installed, skipping"
+    else
+        $dry gem install "$package"
+    fi
 done
 
-# install jekyll
-gem install --user-install bundler jekyll
+if ! gem list -i jekyll &>/dev/null; then
+    $dry gem install --user-install bundler jekyll
+fi

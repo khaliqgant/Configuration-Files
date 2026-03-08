@@ -41,6 +41,13 @@ with the ```--dry-run``` in progress
 ## References
 * Need to have iterm settings as : https://www.dropbox.com/s/hqm2luz4dkj75wu/Screenshot%202015-10-05%2017.36.56.png?dl=0
 
+## Manual Installs (not available via Homebrew)
+These apps need to be installed manually after setup:
+* [BetterSnapTool](https://apps.apple.com/app/bettersnaptool/id417375580) - Mac App Store
+* [iBar](https://apps.apple.com/app/ibar-menubar-icon-control-tool/id6443843900) - Mac App Store
+* [Next Meeting](https://apps.apple.com/app/next-meeting/id1017470484) - Mac App Store
+* [XDeck](https://xdeck.app) - Direct download
+
 ## Known Issues
 * Using nvm to manage node.js versions
 * TL;DR run npms.sh twice:

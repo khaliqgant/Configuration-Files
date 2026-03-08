@@ -1,26 +1,22 @@
-# largely copied from https://gist.github.com/t-io/8255711
-echo Install Homebrew
-$dry /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$dry eval "$(/opt/homebrew/bin/brew shellenv)"
-$dry brew install caskroom/cask/brew-cask
+#!/usr/bin/env bash
+
+# Install Homebrew if not already installed
+if ! command -v brew &>/dev/null; then
+    echo "Installing Homebrew"
+    $dry /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    $dry eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+    echo "Homebrew already installed, skipping"
+fi
+
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-echo "Hiding dock permanently"
-$dry defaults write com.apple.dock tilesize -int 1 && $dry killall Dock
+# Install everything from the Brewfile (formulae + casks)
+echo "Installing brew formulae and cask apps from Brewfile"
+cd ..
+$dry brew bundle
+cd -
 
-# install all the apps
-apps=$(<data/apps.txt)
-echo "Installing apps on apps on apps"
-for app in $apps
-do
-    $dry brew install --cask $app
-done
-echo "installing macvim with lua support see https://github.com/Shougo/neocomplete.vim#vim-for-mac-os-x"
-brew install macvim --with-cscope --with-lua
-echo "installing valgrind for c development"
-# source: http://stackoverflow.com/questions/26564125/yosemite-and-valgrind
-brew install --HEAD valgrind
-echo "installing sshpas"
-brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
-echo "installing brew deps"
-sh brew.sh
+# Start services
+$dry brew services start mysql
+$dry brew services start mailhog

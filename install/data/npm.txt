@@ -5,9 +5,7 @@ npm-css
 remotee-sync
 watchify
 jshint
-jscs
 eslint
-tslint
 browserify
 nodemon
 yo

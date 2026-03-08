@@ -1,9 +1,12 @@
+#!/usr/bin/env bash
+
 packages=$(<data/npm.txt)
 
 for package in $packages
 do
-    $dry npm install -g $package
+    if ! npm list -g "$package" &>/dev/null; then
+        $dry npm install -g "$package"
+    else
+        echo "$package already installed, skipping"
+    fi
 done
-
-$dry nvm install-latest-npm
-

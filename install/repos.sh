@@ -1,12 +1,23 @@
-# read file contents into memory
+#!/usr/bin/env bash
+
 repos=$(<data/repos.txt)
 sites=~/Sites
 
-if [ ! -d "$sites" ]; then
-    mkdir ~/Sites
-fi
+$dry mkdir -p "$sites"
 
-for repo in $repos
-do
-    ($dry cd $sites && $dry git clone $repo)
-done
+while read -r line; do
+    # handle "url dirname" format (e.g. "git@github.com:foo/bar.git my-dir")
+    repo=$(echo "$line" | awk '{print $1}')
+    dir=$(echo "$line" | awk '{print $2}')
+
+    # derive directory name from repo url if not specified
+    if [[ -z "$dir" ]]; then
+        dir=$(basename "$repo" .git)
+    fi
+
+    if [ -d "$sites/$dir" ]; then
+        echo "$dir already cloned, skipping"
+    else
+        $dry git clone "$repo" "$sites/$dir"
+    fi
+done < data/repos.txt

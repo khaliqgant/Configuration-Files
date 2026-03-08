@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [[ "$1" == "--dry-run" ]]; then
     dry="echo"
 else
@@ -7,6 +9,13 @@ fi
 # export dry for the other scripts
 export dry=$dry
 
+# Ask for sudo password upfront and keep alive
+if [[ -z "$dry" ]]; then
+    echo "Some steps require sudo. Enter your password now:"
+    sudo -v
+    # Keep sudo alive in the background
+    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+fi
 
 echo "copying iterm fonts"
 $dry cp -R iterm/fonts/source-code-pro-1.017R/* /Library/Fonts/
@@ -16,27 +25,27 @@ $dry open ./terminal/profiles/dev.terminal
 $dry defaults write com.apple.terminal "Default Window Settings" "dev"
 
 cd install
+echo "setting macOS defaults"
+bash macos-defaults.sh
 echo "downloading cli and vim items"
-sh shell.sh
+bash shell.sh
 echo "setting vim settings"
-sh vim.sh
-echo "setting up ruby setup"
-sh rvm-setup.sh
+bash vim.sh
 echo "downloading homebrew and cask apps"
-sh apps.sh
+bash apps.sh
+echo "setting up languages via mise"
+bash mise-setup.sh
 echo "cloning my repos"
-sh repos.sh
+bash repos.sh
 echo "setting up npm global packages"
-sh npms.sh
+bash npms.sh
+echo "installing pips"
+bash pip.sh
+echo "installing gems"
+bash gem.sh
 echo "restoring mackup settings"
 $dry mackup restore
-echo "installing global composer packages"
-sh composer.sh
-echo "setting up python using pyenv"
-sh python-setup.sh
-echo "installing pips"
-sh pip.sh
 echo "starting mysql"
-sh mysql.sh
+bash mysql.sh
 echo "setup installed apps"
-sh app_setup.sh
+bash app_setup.sh
