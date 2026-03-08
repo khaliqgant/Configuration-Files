@@ -1,6 +1,6 @@
 # largely copied from https://gist.github.com/t-io/8255711
 echo Install Homebrew
-$dry ruby -e "$($dry curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$dry /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 $dry eval "$(/opt/homebrew/bin/brew shellenv)"
 $dry brew install caskroom/cask/brew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
