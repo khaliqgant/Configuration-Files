@@ -7,6 +7,8 @@ tap 'steveyegge/beads'
 tap 'heroku/brew'
 tap 'eth-p/software'
 tap 'warrensbox/tap'
+tap 'steipete/tap'
+tap 'xdevplatform/tap'
 
 # cli tools
 brew 'ack'
@@ -164,6 +166,7 @@ brew 'steveyegge/beads/bd'
 brew 'stripe/stripe-cli/stripe'
 brew 'supabase/tap/supabase'
 brew 'uv'
+brew 'steipete/tap/peekaboo'
 
 # cask apps
 cask '1password'
@@ -228,6 +231,7 @@ cask 'wispr-flow'
 cask 'xbar'
 cask 'zed'
 cask 'zoom'
+cask 'xdevplatform/tap/xurl'
 
 # mac app store (requires: brew install mas)
 brew 'mas'

@@ -3,3 +3,5 @@ grip
 ansible-lint
 csvkit
 ansible
+nano-pdf
+openai-whisper
