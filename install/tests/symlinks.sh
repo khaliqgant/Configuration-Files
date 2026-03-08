@@ -1,2 +1,3 @@
+#!/usr/bin/env bash
 export dry="echo"
-(cd .. && sh symlinks.sh)
+(cd "$(dirname "$0")/.." && bash symlinks.sh)

@@ -160,6 +160,7 @@ brew 'zsh-syntax-highlighting'
 # third-party cli tools
 brew 'daytonaio/cli/daytona'
 brew 'gemini-cli'
+brew 'flyctl'
 brew 'railway'
 brew 'steveyegge/beads/bd'
 brew 'stripe/stripe-cli/stripe'

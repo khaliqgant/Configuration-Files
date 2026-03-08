@@ -16,6 +16,7 @@ markdown-pdf
 xml2json-cli
 ttab
 prettier
+prpm
 fx
 mintlify
 localtunnell

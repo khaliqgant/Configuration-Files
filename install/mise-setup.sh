@@ -18,3 +18,6 @@ $dry mise use --global ruby@"$RUBY_VERSION"
 
 echo "Installing Go via mise"
 $dry mise use --global go@latest
+
+echo "Installing Rust via mise"
+$dry mise use --global rust@latest

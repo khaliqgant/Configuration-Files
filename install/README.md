@@ -47,6 +47,9 @@ These apps need to be installed manually after setup:
 * [iBar](https://apps.apple.com/app/ibar-menubar-icon-control-tool/id6443843900) - Mac App Store
 * [Next Meeting](https://apps.apple.com/app/next-meeting/id1017470484) - Mac App Store
 * [XDeck](https://xdeck.app) - Direct download
+* [Codex Mac App](https://developers.openai.com/codex/app/) - Direct download
+* [Conductor](https://conductor.build) - Direct download
+* [Superset](https://superset.sh/) - Direct download
 
 ## Known Issues
 * Using nvm to manage node.js versions

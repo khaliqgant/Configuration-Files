@@ -1,2 +1,3 @@
+#!/usr/bin/env bash
 export dry="echo"
-(cd .. && sh shell.sh)
+(cd "$(dirname "$0")/.." && bash shell.sh)
