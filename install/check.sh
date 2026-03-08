@@ -246,10 +246,17 @@ while IFS= read -r line; do
         repo_dir=$(basename "$line" .git)
     fi
 
-    if [ -d "$HOME/Sites/$repo_dir" ]; then
+    # Support paths like "Projects/ai-hist" — resolve relative to $HOME
+    if [[ "$repo_dir" == */* ]]; then
+        repo_path="$HOME/$repo_dir"
+    else
+        repo_path="$HOME/Sites/$repo_dir"
+    fi
+
+    if [ -d "$repo_path" ]; then
         pass "Repo $repo_dir cloned"
     else
-        miss "Repo $repo_dir not cloned in ~/Sites"
+        miss "Repo $repo_dir not cloned at $repo_path"
     fi
 done < "$DATA_DIR/repos.txt"
 

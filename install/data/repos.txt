@@ -6,3 +6,4 @@ git@github.com:khaliqgant/Alfred-Project-Workflow.git
 git@github.com:khaliqgant/laid-back-vj.git
 git@github.com:dev-diaries/web.git dev-diaries
 git@github.com:khaliqgant/terraform-convenience-script.git
+git@github.com:khaliqgant/ai-hist.git Projects/ai-hist
