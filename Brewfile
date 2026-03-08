@@ -235,3 +235,7 @@ cask 'wispr-flow'
 cask 'xbar'
 cask 'zed'
 cask 'zoom'
+
+# mac app store (requires: brew install mas)
+brew 'mas'
+mas 'BetterSnapTool', id: 417375580
