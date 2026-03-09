@@ -123,3 +123,4 @@ export PATH="$(npm config get prefix)/bin:$PATH"
 # OpenClaw Completion
 source "/Users/khaliqgant/.openclaw/completions/openclaw.zsh"
 [[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh
+eval "$(mise activate zsh)"
