@@ -15,3 +15,7 @@ $dry sudo ln -sf ~/Dropbox/KJG/hosts /etc
 
 echo "Copying over global git ignore"
 $dry ln -sf .global-gitigore ~/.gitignore
+
+echo "Symlinking mise config"
+$dry mkdir -p ~/.config/mise
+$dry ln -sf ~/Configuration-Files/mise.toml ~/.config/mise/config.toml

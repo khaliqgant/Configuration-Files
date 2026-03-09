@@ -22,15 +22,23 @@ ln -sf ~/Dropbox/Khaliq\ Gant/KJG/Creds/.secrets.zsh ~/.secrets.zsh
 docker build -t openclaw ~/Configuration-Files/docker/openclaw
 ```
 
-### 3. Run with config from Dropbox
+### 3. Copy Dropbox config into the volume, then run
+
+The Dropbox config sets `bind: loopback` which blocks access from outside the container.
+Do **not** mount it as `:ro` — the entrypoint needs to patch `bind` to `lan` so Docker port mapping works.
 
 ```bash
+docker volume create openclaw-data
+docker run --rm \
+  -v "$HOME/Dropbox/Khaliq Gant/KJG/Creds/openclaw.json:/src/openclaw.json:ro" \
+  -v openclaw-data:/dest \
+  alpine cp /src/openclaw.json /dest/openclaw.json
+
 docker run -d --name openclaw \
   -p 18789:18789 -p 18791:18791 \
   -e ANTHROPIC_API_KEY="$(grep ANTHROPIC_API_KEY ~/.secrets.zsh | cut -d'"' -f2)" \
   -e ELEVENLABS_API_KEY="$(grep ELEVENLABS_API_KEY ~/.secrets.zsh | cut -d'"' -f2)" \
   -e OPENAI_API_KEY="$(grep OPENAI_API_KEY ~/.secrets.zsh | cut -d'"' -f2)" \
-  -v "$HOME/Dropbox/Khaliq Gant/KJG/Creds/openclaw.json:/root/.openclaw/openclaw.json:ro" \
   -v openclaw-data:/root/.openclaw \
   --restart unless-stopped \
   openclaw
