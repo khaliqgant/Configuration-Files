@@ -10,7 +10,7 @@ Oh, new computer?? You fancy huh?
 ### 2. Run Dropbox setup script
 This copies over your SSH keys, npmrc, and installs oh-my-zsh:
 ```bash
-bash ~/Dropbox/KJG/Install/setup.sh
+bash ~/Dropbox/"Khaliq Gant"/KJG/Install/setup.sh
 ```
 Note: If `~/Dropbox` doesn't exist yet, the install script (step 4) will create a symlink from `~/Dropbox` to your actual Dropbox folder. You can also create it manually:
 ```bash

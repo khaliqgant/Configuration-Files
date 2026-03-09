@@ -308,7 +308,7 @@ if [ -d "$HOME/Dropbox" ] || [ -L "$HOME/Dropbox" ]; then
     if [ -d "$HOME/.aws" ] || [ -L "$HOME/.aws" ]; then
         pass "~/.aws linked"
     else
-        miss "~/.aws not linked (run: ln -sf ~/Dropbox/KJG/.aws ~/)"
+        miss "~/.aws not linked (run: ln -sf ~/Dropbox/Khaliq\ Gant/KJG/.aws ~/)"
     fi
 else
     miss "~/Dropbox not found"

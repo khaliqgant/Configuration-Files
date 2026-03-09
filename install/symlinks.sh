@@ -8,10 +8,10 @@ do
 done
 
 echo "Copying AWS creds"
-$dry ln -sf ~/Dropbox/KJG/.aws ~/
+$dry ln -sf ~/Dropbox/"Khaliq Gant"/KJG/.aws ~/
 
 echo "Copying Hosts file"
-$dry sudo ln -sf ~/Dropbox/KJG/hosts /etc
+$dry sudo ln -sf ~/Dropbox/"Khaliq Gant"/KJG/hosts /etc
 
 echo "Copying over global git ignore"
 $dry ln -sf .global-gitigore ~/.gitignore

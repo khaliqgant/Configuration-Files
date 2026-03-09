@@ -26,7 +26,7 @@ alias .bundles='open -a Macvim ~/.vimrc.bundles.local'
 alias spf-vimrc='open -a Macvim ~/.spf13-vim-3/.vimrc'
 alias vim-bundle='cd ~/.spf13-vim-3/.vim/bundle'
 
-alias npmrc='(cd ~/ && ln -sf ~/Dropbox/KJG/.npmrc .npmrc)'
+alias npmrc='(cd ~/ && ln -sf ~/Dropbox/"Khaliq Gant"/KJG/.npmrc .npmrc)'
 
-alias local_scripts="open -a Macvim ~/Dropbox/KJG/Development/scripts.zsh"
+alias local_scripts="open -a Macvim ~/Dropbox/Khaliq\ Gant/KJG/Development/scripts.zsh"
 alias temporal-dev="temporal server start-dev"

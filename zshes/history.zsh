@@ -1,4 +1,4 @@
-dropbox=~/Dropbox/KJG/Computers
+dropbox=~/Dropbox/"Khaliq Gant"/KJG/Computers
 historyL=$dropbox/.history
 
 # cp the history file from this comp to dropbox

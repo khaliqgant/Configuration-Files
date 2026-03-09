@@ -57,7 +57,7 @@ source ~/Configuration-Files/zshes/functions/main.zsh
 source ~/Configuration-Files/zshes/histdb.zsh
 
 # load in any custom private scripts
-[[ -f ~/Dropbox/KJG/Development/scripts.zsh ]] && source ~/Dropbox/KJG/Development/scripts.zsh
+[[ -f ~/Dropbox/"Khaliq Gant"/KJG/Development/scripts.zsh ]] && source ~/Dropbox/"Khaliq Gant"/KJG/Development/scripts.zsh
 
 # switch terraform versions on directory change
 source ~/Configuration-Files/zshes/tfswitch.zsh
