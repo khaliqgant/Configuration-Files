@@ -16,7 +16,7 @@ export HOMEBREW_BREWFILE=~/Configuration-Files/Brewfile
 autoload -U compinit && compinit
 
 # JAVA
-export JAVA_HOME=$(/usr/libexec/java_home)
+[[ -x /usr/libexec/java_home ]] && /usr/libexec/java_home &>/dev/null && export JAVA_HOME=$(/usr/libexec/java_home)
 
 # AI Agent Tools
 export PATH="$PATH:$HOME/Projects/ai-tooling/agent-tools/brave-search"

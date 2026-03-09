@@ -57,7 +57,7 @@ source ~/Configuration-Files/zshes/functions/main.zsh
 source ~/Configuration-Files/zshes/histdb.zsh
 
 # load in any custom private scripts
-source ~/Dropbox/KJG/Development/scripts.zsh
+[[ -f ~/Dropbox/KJG/Development/scripts.zsh ]] && source ~/Dropbox/KJG/Development/scripts.zsh
 
 # switch terraform versions on directory change
 source ~/Configuration-Files/zshes/tfswitch.zsh
@@ -118,4 +118,8 @@ export OMNARA_INSTALL="$HOME/.omnara"
 export PATH="$OMNARA_INSTALL/bin:$PATH"
 export PATH="$(npm config get prefix)/bin:$PATH"
 
-source /Users/khaliqgant/.daytona.completion_script.zsh
+[[ -f /Users/khaliqgant/.daytona.completion_script.zsh ]] && source /Users/khaliqgant/.daytona.completion_script.zsh
+
+# OpenClaw Completion
+source "/Users/khaliqgant/.openclaw/completions/openclaw.zsh"
+[[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh
