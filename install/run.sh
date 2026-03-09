@@ -37,6 +37,8 @@ $dry defaults write com.apple.terminal "Default Window Settings" "dev"
 cd install
 echo "setting macOS defaults"
 bash macos-defaults.sh
+echo "restoring mackup settings (before symlinks so dotfiles take priority)"
+$dry mackup restore
 echo "downloading cli and vim items"
 bash shell.sh
 echo "setting vim settings"
@@ -55,8 +57,6 @@ echo "installing gems"
 bash gem.sh
 echo "installing CLI tools (claude, amp)"
 bash cli-tools.sh
-echo "restoring mackup settings"
-$dry mackup restore
 echo "starting mysql"
 bash mysql.sh
 echo "setup installed apps"
