@@ -2,28 +2,35 @@
 
 Sandboxed [OpenClaw](https://docs.openclaw.ai/) gateway — AI coding agent accessible via browser UI or messaging channels.
 
-## Setup
+## Prerequisites
 
-### 1. Build the image
+- Docker installed
+- Dropbox synced (config lives in `~/Dropbox/Khaliq Gant/KJG/Creds/`)
+- Shell secrets sourced via `~/.secrets.zsh`
+
+## Setup (new machine)
+
+### 1. Symlink secrets
+
+```bash
+ln -sf ~/Dropbox/Khaliq\ Gant/KJG/Creds/.secrets.zsh ~/.secrets.zsh
+```
+
+### 2. Build the image
 
 ```bash
 docker build -t openclaw ~/Configuration-Files/docker/openclaw
 ```
 
-### 2. Generate a Claude setup token
-
-```bash
-claude setup-token
-```
-
-Copy the output token.
-
-### 3. First run (with setup token)
+### 3. Run with config from Dropbox
 
 ```bash
 docker run -d --name openclaw \
   -p 18789:18789 -p 18791:18791 \
-  -e CLAUDE_SETUP_TOKEN="paste-token-here" \
+  -e ANTHROPIC_API_KEY="$(grep ANTHROPIC_API_KEY ~/.secrets.zsh | cut -d'"' -f2)" \
+  -e ELEVENLABS_API_KEY="$(grep ELEVENLABS_API_KEY ~/.secrets.zsh | cut -d'"' -f2)" \
+  -e OPENAI_API_KEY="$(grep OPENAI_API_KEY ~/.secrets.zsh | cut -d'"' -f2)" \
+  -v "$HOME/Dropbox/Khaliq Gant/KJG/Creds/openclaw.json:/root/.openclaw/openclaw.json:ro" \
   -v openclaw-data:/root/.openclaw \
   --restart unless-stopped \
   openclaw
@@ -36,38 +43,33 @@ http://127.0.0.1:18789/
 Get the auth token if prompted:
 
 ```bash
-docker exec openclaw node -e "const c=JSON.parse(require('fs').readFileSync('/root/.openclaw/openclaw.json','utf8'));console.log(c.gateway.auth.token)"
+docker exec openclaw node -e "const c=JSON.parse(require('fs').readFileSync('/root/.openclaw/openclaw.json','utf8'));console.log(c.gateway?.auth?.token)"
 ```
+
+## What works everywhere
+
+- Telegram messaging + voice
+- TTS (ElevenLabs)
+- Email (Gmail via gws)
+- GitHub (gh CLI)
+- Coding agents (Claude Code, Codex)
+- Multi-agent (main, coder, writer, research)
+- Web search (Perplexity)
+- Summarize URLs/YouTube
+
+## What's Mac mini only
+
+- Peekaboo / XDeck (screen capture)
+- Apple Reminders / Notes
+- 1Password desktop integration
+- XDeck tweet digest cron
 
 ## Subsequent runs
 
-Credentials persist in the volume — no setup token needed:
+Config persists in the volume + Dropbox — just start:
 
 ```bash
-docker run -d --name openclaw \
-  -p 18789:18789 -p 18791:18791 \
-  -v openclaw-data:/root/.openclaw \
-  --restart unless-stopped \
-  openclaw
-```
-
-## Using an API key instead
-
-If you prefer using an API key over a Claude subscription:
-
-```bash
-docker run -d --name openclaw \
-  -p 18789:18789 -p 18791:18791 \
-  -e ANTHROPIC_API_KEY="sk-ant-..." \
-  -v openclaw-data:/root/.openclaw \
-  --restart unless-stopped \
-  openclaw
-```
-
-## Connecting messaging channels (optional)
-
-```bash
-docker exec -it openclaw openclaw channels login
+docker start openclaw
 ```
 
 ## Teardown
