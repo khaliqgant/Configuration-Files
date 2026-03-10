@@ -23,28 +23,20 @@ ln -s .* ~/
         ```
     3. In my instance, I had brew unlink cmake and reinstall via brew
     4. Also to quiet the python quitting error, had to brew unlink python as wel
-* Using [homebrew-brewdler](https://github.com/Homebrew/homebrew-brewdler) 
-to manage homebrew depdencies with a Brewfile. To install brewdler run
+* Using [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle) 
+to manage Homebrew dependencies with a Brewfile.
+* To install dependencies manually, navigate to this config repo and run:
+```bash
+brew bundle
 ```
-brew tap Homebrew/brewdler
-```
-* To install homebrew depdencies navigate to this config repo and run
-```
-brew brewdle
-```
-* Might want to move to [homebrew-file](https://github.com/rcmdnk/homebrew-file) instead
-* To run latex manipulations download [mactext](http://www.tug.org/mactex/index.html)
 
 Executables
 ---------
-* Any custom shell scripts turn the file into an executable
+* Any custom shell scripts in `bin/` should be made executable:
+```bash
+chmod +x bin/replace
 ```
-chmod +x replace
-```
-* Sym link it to the usr/local/bin directory
-```
-ln -s ~/Configuration-Files/bin/replace .
-```
+* They are automatically symlinked to your home directory by `install/symlinks.sh`. To make them globally accessible, you can add `~/bin` to your PATH (already handled in `zshes/path.zsh`).
 
 Linting
 ---------

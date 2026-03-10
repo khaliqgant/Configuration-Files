@@ -1,11 +1,9 @@
 echo "Open apps to configure them correctly"
 
-# BetterSnapTool: enable cmd+shift drag to move, opt+shift drag to resize
+# BetterSnapTool: import full plist (individual defaults write keys get
+# overwritten by BSTAppSettings blob, so we import the whole file instead)
 echo "Configuring BetterSnapTool"
-defaults write com.hegenberg.BetterSnapTool cmdMove -bool true
-defaults write com.hegenberg.BetterSnapTool shiftMove -bool true
-defaults write com.hegenberg.BetterSnapTool optResize -bool true
-defaults write com.hegenberg.BetterSnapTool shiftResize -bool true
+cp ../resources/BetterSnapTool.plist ~/Library/Preferences/com.hegenberg.BetterSnapTool.plist
 
 open /Applications/RescueTime.app
 open /Applications/Next\ Meeting.app

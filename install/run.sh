@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 if [[ "$1" == "--dry-run" ]]; then
     dry="echo"
 else

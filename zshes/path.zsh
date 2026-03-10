@@ -5,7 +5,7 @@ eval "$(mise activate zsh)"
 
 export PATH=/usr/local/sbin:$PATH
 export PATH=/Users/Shared/DBngin/postgresql/15.1/bin:$PATH
-export PATH=$PATH:/Users/khaliqgant/bin # terraform switch
+export PATH=$PATH:$HOME/bin # terraform switch
 
 [ -z "$HOSTNAME" ] && export HOSTNAME="$(hostname)"
 

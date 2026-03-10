@@ -7,6 +7,12 @@ else
     echo "spf13 already installed, skipping"
 fi
 
+# Ensure spf13 symlinks are correct (symlinks.sh or other scripts can break these)
+echo "Restoring spf13 symlinks"
+$dry ln -sf ~/.spf13-vim-3/.vimrc ~/.vimrc
+$dry ln -sf ~/.spf13-vim-3/.vimrc.before ~/.vimrc.before
+$dry ln -sf ~/.spf13-vim-3/.vimrc.bundles ~/.vimrc.bundles
+
 if [ -d ~/.vim/bundle/vimproc.vim ]; then
     ($dry cd ~/.vim/bundle/vimproc.vim && $dry make)
 fi

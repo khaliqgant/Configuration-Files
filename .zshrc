@@ -67,14 +67,14 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/khaliqgant/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/khaliqgant/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/khaliqgant/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/khaliqgant/miniforge3/bin:$PATH"
+        export PATH="$HOME/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -83,7 +83,7 @@ unset __conda_setup
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # pnpm
-export PNPM_HOME="/Users/khaliqgant/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -91,26 +91,26 @@ esac
 # pnpm end
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/khaliqgant/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/khaliqgant/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/khaliqgant/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/khaliqgant/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '$HOME/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 # bun completions
-[ -s "/Users/khaliqgant/.bun/_bun" ] && source "/Users/khaliqgant/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # opencode
-export PATH=/Users/khaliqgant/.opencode/bin:$PATH
-export PATH="/Users/khaliqgant/.local/bin:$PATH"
+export PATH=$HOME/.opencode/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # Added by flyctl installer
-export FLYCTL_INSTALL="/Users/khaliqgant/.fly"
+export FLYCTL_INSTALL="$HOME/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 # omnara
@@ -118,9 +118,9 @@ export OMNARA_INSTALL="$HOME/.omnara"
 export PATH="$OMNARA_INSTALL/bin:$PATH"
 export PATH="$(npm config get prefix)/bin:$PATH"
 
-[[ -f /Users/khaliqgant/.daytona.completion_script.zsh ]] && source /Users/khaliqgant/.daytona.completion_script.zsh
+[[ -f $HOME/.daytona.completion_script.zsh ]] && source $HOME/.daytona.completion_script.zsh
 
 # OpenClaw Completion
-source "/Users/khaliqgant/.openclaw/completions/openclaw.zsh"
+source "$HOME/.openclaw/completions/openclaw.zsh"
 [[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh
 eval "$(mise activate zsh)"
