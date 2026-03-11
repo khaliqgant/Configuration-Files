@@ -13,6 +13,19 @@ $dry ln -sf ~/.spf13-vim-3/.vimrc ~/.vimrc
 $dry ln -sf ~/.spf13-vim-3/.vimrc.before ~/.vimrc.before
 $dry ln -sf ~/.spf13-vim-3/.vimrc.bundles ~/.vimrc.bundles
 
+# Ensure Vundle is installed and bundles are valid
+if [ ! -f ~/.vim/bundle/vundle/autoload/vundle.vim ] || [ ! -s ~/.vim/bundle/vundle/autoload/vundle.vim ]; then
+    echo "Vundle missing or corrupted, re-installing"
+    $dry rm -rf ~/.vim/bundle/vundle
+    $dry git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+fi
+
+# Install/update bundles if solarized is missing or empty (canary for bundle health)
+if [ ! -s ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ]; then
+    echo "Bundles missing or corrupted, installing via Vundle"
+    echo | $dry vim -e -s -u ~/.vimrc +BundleInstall! +qall 2>/dev/null
+fi
+
 if [ -d ~/.vim/bundle/vimproc.vim ]; then
     ($dry cd ~/.vim/bundle/vimproc.vim && $dry make)
 fi
