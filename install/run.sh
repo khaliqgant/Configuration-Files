@@ -58,6 +58,14 @@ elif [[ -x /usr/local/bin/brew ]]; then
     eval "$(/usr/local/bin/brew shellenv)"
 fi
 echo "restoring mackup settings (before symlinks so dotfiles take priority)"
+# Pre-delete directories that mackup will replace with Dropbox symlinks.
+# Python 3.14's shutil.rmtree has a macOS compatibility issue where it calls
+# os.unlink() on directory entries (getting EPERM), so we remove them first
+# with the shell's rm -rf which handles this correctly.
+if [ -d ~/.vim/bundle ] && [ ! -L ~/.vim/bundle ]; then
+    echo "Removing ~/.vim/bundle before mackup restore (avoids Python 3.14 shutil bug)"
+    $dry rm -rf ~/.vim/bundle
+fi
 $dry mackup restore
 echo "setting up languages via mise"
 bash mise-setup.sh
