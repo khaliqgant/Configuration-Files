@@ -112,6 +112,8 @@ if should_run mackup; then
     # with the shell's rm -rf which handles this correctly.
     if [ -d ~/.vim/bundle ] && [ ! -L ~/.vim/bundle ]; then
         echo "Removing ~/.vim/bundle before mackup restore (avoids Python 3.14 shutil bug)"
+        $dry chflags -R nouchg ~/.vim/bundle
+        $dry chmod -R u+w ~/.vim/bundle
         $dry rm -rf ~/.vim/bundle
     fi
     $dry mackup restore
