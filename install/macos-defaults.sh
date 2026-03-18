@@ -65,8 +65,9 @@ $dry defaults write com.apple.screencapture disable-shadow -bool true
 # Safari
 echo "  Safari settings"
 # Enable Safari develop menu and web inspector
-$dry defaults write com.apple.Safari IncludeDevelopMenu -bool true
-$dry defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+# (These may fail silently on newer macOS due to sandboxing — that's OK)
+$dry defaults write com.apple.Safari IncludeDevelopMenu -bool true 2>/dev/null || true
+$dry defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true 2>/dev/null || true
 
 # Activity Monitor
 echo "  Activity Monitor settings"

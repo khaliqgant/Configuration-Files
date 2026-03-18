@@ -11,6 +11,14 @@ fi
 # export dry for the other scripts
 export dry=$dry
 
+# Homebrew (and tools installed by it) cannot run as root.
+# If invoked via sudo, run those commands as the original user.
+if [[ $EUID -eq 0 && -n "$SUDO_USER" ]]; then
+    export BREW_RUN="sudo -u $SUDO_USER"
+else
+    export BREW_RUN=""
+fi
+
 # Create ~/Dropbox symlink to the actual Dropbox path
 # Update DROPBOX_PATH below to match your Dropbox folder location
 DROPBOX_PATH="$HOME/Ingliq Dropbox/Khaliq Gant"
@@ -30,7 +38,7 @@ if [[ -z "$dry" ]]; then
 fi
 
 echo "copying iterm fonts"
-$dry cp -R iterm/fonts/source-code-pro-1.017R/* /Library/Fonts/
+$dry sudo cp -R iterm/fonts/source-code-pro-1.017R/* /Library/Fonts/
 
 echo "copying over terminal setting"
 $dry open ./terminal/profiles/dev.terminal
@@ -46,7 +54,7 @@ bash vim.sh
 echo "downloading homebrew and cask apps"
 bash apps.sh
 echo "restoring mackup settings (before symlinks so dotfiles take priority)"
-$dry mackup restore
+$dry $BREW_RUN mackup restore
 echo "setting up languages via mise"
 bash mise-setup.sh
 echo "cloning my repos"
