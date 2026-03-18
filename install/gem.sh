@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-eval "$(mise activate bash)"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 packages=$(<data/gems.txt)
 

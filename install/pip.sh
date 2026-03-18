@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-eval "$(mise activate bash)"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 $dry python3 -m ensurepip --upgrade 2>/dev/null
 packages=$(<data/pips.txt)
