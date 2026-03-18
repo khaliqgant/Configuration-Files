@@ -1,18 +1,14 @@
 #!/usr/bin/env bash
 
-# Homebrew cannot run as root. If this script is invoked via sudo, run brew
-# commands as the original user.
-if [[ $EUID -eq 0 && -n "$SUDO_USER" ]]; then
-    BREW_RUN="sudo -u $SUDO_USER"
-else
-    BREW_RUN=""
-fi
-
 # Install Homebrew if not already installed
-if ! $BREW_RUN command -v brew &>/dev/null; then
+if ! command -v brew &>/dev/null; then
     echo "Installing Homebrew"
-    $dry $BREW_RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    $dry $BREW_RUN eval "$(/opt/homebrew/bin/brew shellenv)"
+    $dry /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    if [[ -x /opt/homebrew/bin/brew ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    elif [[ -x /usr/local/bin/brew ]]; then
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
 else
     echo "Homebrew already installed, skipping"
 fi
@@ -22,9 +18,9 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Install everything from the Brewfile (formulae + casks)
 echo "Installing brew formulae and cask apps from Brewfile"
 cd ..
-$dry $BREW_RUN brew bundle
+$dry brew bundle
 cd -
 
 # Start services
-$dry $BREW_RUN brew services start mysql
-$dry $BREW_RUN brew services start mailhog
+$dry brew services start mysql
+$dry brew services start mailhog

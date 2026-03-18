@@ -2,6 +2,11 @@
 
 set -e
 
+if [[ $EUID -eq 0 ]]; then
+    echo "Error: do not run this script with sudo. Run as your normal user: bash install/run.sh"
+    exit 1
+fi
+
 if [[ "$1" == "--dry-run" ]]; then
     dry="echo"
 else
@@ -10,14 +15,6 @@ fi
 
 # export dry for the other scripts
 export dry=$dry
-
-# Homebrew (and tools installed by it) cannot run as root.
-# If invoked via sudo, run those commands as the original user.
-if [[ $EUID -eq 0 && -n "$SUDO_USER" ]]; then
-    export BREW_RUN="sudo -u $SUDO_USER"
-else
-    export BREW_RUN=""
-fi
 
 # Create ~/Dropbox symlink to the actual Dropbox path
 # Update DROPBOX_PATH below to match your Dropbox folder location
@@ -53,8 +50,15 @@ echo "setting vim settings"
 bash vim.sh
 echo "downloading homebrew and cask apps"
 bash apps.sh
+# Ensure Homebrew-installed tools (e.g. mackup) are on PATH
+# /opt/homebrew = Apple Silicon, /usr/local = Intel
+if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
 echo "restoring mackup settings (before symlinks so dotfiles take priority)"
-$dry $BREW_RUN mackup restore
+$dry mackup restore
 echo "setting up languages via mise"
 bash mise-setup.sh
 echo "cloning my repos"
