@@ -7,14 +7,43 @@ if [[ $EUID -eq 0 ]]; then
     exit 1
 fi
 
-if [[ "$1" == "--dry-run" ]]; then
-    dry="echo"
-else
-    dry=""
-fi
+dry=""
+from=""
+for arg in "$@"; do
+    case "$arg" in
+        --dry-run) dry="echo" ;;
+        --from=*)  from="${arg#--from=}" ;;
+    esac
+done
 
 # export dry for the other scripts
 export dry=$dry
+
+# Steps in order — used by --from to skip ahead
+steps=(fonts terminal macos-defaults shell vim apps mackup mise repos npms pip gem cli-tools mysql app-setup)
+
+# skip=1 until we reach the requested step
+if [[ -n "$from" ]]; then
+    skip=1
+    valid=0
+    for s in "${steps[@]}"; do [[ "$s" == "$from" ]] && valid=1; done
+    if [[ $valid -eq 0 ]]; then
+        echo "Unknown step '$from'. Valid steps: ${steps[*]}"
+        exit 1
+    fi
+else
+    skip=0
+fi
+
+# Helper: returns true if we should run this step
+should_run() {
+    local step="$1"
+    if [[ $skip -eq 1 ]]; then
+        [[ "$step" == "$from" ]] && skip=0
+        [[ $skip -eq 1 ]] && return 1
+    fi
+    return 0
+}
 
 # Create ~/Dropbox symlink to the actual Dropbox path
 # Update DROPBOX_PATH below to match your Dropbox folder location
@@ -34,22 +63,39 @@ if [[ -z "$dry" ]]; then
     while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 fi
 
-echo "copying iterm fonts"
-$dry sudo cp -R iterm/fonts/source-code-pro-1.017R/* /Library/Fonts/
+if should_run fonts; then
+    echo "copying iterm fonts"
+    $dry sudo cp -R iterm/fonts/source-code-pro-1.017R/* /Library/Fonts/
+fi
 
-echo "copying over terminal setting"
-$dry open ./terminal/profiles/dev.terminal
-$dry defaults write com.apple.terminal "Default Window Settings" "dev"
+if should_run terminal; then
+    echo "copying over terminal setting"
+    $dry open ./terminal/profiles/dev.terminal
+    $dry defaults write com.apple.terminal "Default Window Settings" "dev"
+fi
 
 cd install
-echo "setting macOS defaults"
-bash macos-defaults.sh
-echo "downloading cli and vim items"
-bash shell.sh
-echo "setting vim settings"
-bash vim.sh
-echo "downloading homebrew and cask apps"
-bash apps.sh
+
+if should_run macos-defaults; then
+    echo "setting macOS defaults"
+    bash macos-defaults.sh
+fi
+
+if should_run shell; then
+    echo "downloading cli and vim items"
+    bash shell.sh
+fi
+
+if should_run vim; then
+    echo "setting vim settings"
+    bash vim.sh
+fi
+
+if should_run apps; then
+    echo "downloading homebrew and cask apps"
+    bash apps.sh
+fi
+
 # Ensure Homebrew-installed tools (e.g. mackup) are on PATH
 # /opt/homebrew = Apple Silicon, /usr/local = Intel
 if [[ -x /opt/homebrew/bin/brew ]]; then
@@ -57,29 +103,56 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
 elif [[ -x /usr/local/bin/brew ]]; then
     eval "$(/usr/local/bin/brew shellenv)"
 fi
-echo "restoring mackup settings (before symlinks so dotfiles take priority)"
-# Pre-delete directories that mackup will replace with Dropbox symlinks.
-# Python 3.14's shutil.rmtree has a macOS compatibility issue where it calls
-# os.unlink() on directory entries (getting EPERM), so we remove them first
-# with the shell's rm -rf which handles this correctly.
-if [ -d ~/.vim/bundle ] && [ ! -L ~/.vim/bundle ]; then
-    echo "Removing ~/.vim/bundle before mackup restore (avoids Python 3.14 shutil bug)"
-    $dry rm -rf ~/.vim/bundle
+
+if should_run mackup; then
+    echo "restoring mackup settings (before symlinks so dotfiles take priority)"
+    # Pre-delete directories that mackup will replace with Dropbox symlinks.
+    # Python 3.14's shutil.rmtree has a macOS compatibility issue where it calls
+    # os.unlink() on directory entries (getting EPERM), so we remove them first
+    # with the shell's rm -rf which handles this correctly.
+    if [ -d ~/.vim/bundle ] && [ ! -L ~/.vim/bundle ]; then
+        echo "Removing ~/.vim/bundle before mackup restore (avoids Python 3.14 shutil bug)"
+        $dry rm -rf ~/.vim/bundle
+    fi
+    $dry mackup restore
 fi
-$dry mackup restore
-echo "setting up languages via mise"
-bash mise-setup.sh
-echo "cloning my repos"
-bash repos.sh
-echo "setting up npm global packages"
-bash npms.sh
-echo "installing pips"
-bash pip.sh
-echo "installing gems"
-bash gem.sh
-echo "installing CLI tools (claude, amp)"
-bash cli-tools.sh
-echo "starting mysql"
-bash mysql.sh
-echo "setup installed apps"
-bash app_setup.sh
+
+if should_run mise; then
+    echo "setting up languages via mise"
+    bash mise-setup.sh
+fi
+
+if should_run repos; then
+    echo "cloning my repos"
+    bash repos.sh
+fi
+
+if should_run npms; then
+    echo "setting up npm global packages"
+    bash npms.sh
+fi
+
+if should_run pip; then
+    echo "installing pips"
+    bash pip.sh
+fi
+
+if should_run gem; then
+    echo "installing gems"
+    bash gem.sh
+fi
+
+if should_run cli-tools; then
+    echo "installing CLI tools (claude, amp)"
+    bash cli-tools.sh
+fi
+
+if should_run mysql; then
+    echo "starting mysql"
+    bash mysql.sh
+fi
+
+if should_run app-setup; then
+    echo "setup installed apps"
+    bash app_setup.sh
+fi
