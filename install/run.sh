@@ -39,14 +39,14 @@ $dry defaults write com.apple.terminal "Default Window Settings" "dev"
 cd install
 echo "setting macOS defaults"
 bash macos-defaults.sh
-echo "restoring mackup settings (before symlinks so dotfiles take priority)"
-$dry mackup restore
 echo "downloading cli and vim items"
 bash shell.sh
 echo "setting vim settings"
 bash vim.sh
 echo "downloading homebrew and cask apps"
 bash apps.sh
+echo "restoring mackup settings (before symlinks so dotfiles take priority)"
+$dry mackup restore
 echo "setting up languages via mise"
 bash mise-setup.sh
 echo "cloning my repos"
