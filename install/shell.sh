@@ -16,4 +16,8 @@ do
 done
 
 echo "copying zsh config to plugins"
+# sudo rm in case files are root-owned from a prior sudo run
+for f in ~/Configuration-Files/install/config/zsh/*; do
+    $dry sudo rm -f ~/.oh-my-zsh/custom/$(basename "$f")
+done
 $dry cp ~/Configuration-Files/install/config/zsh/* ~/.oh-my-zsh/custom/

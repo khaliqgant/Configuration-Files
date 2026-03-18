@@ -36,4 +36,6 @@ $dry ln -sf .global-gitignore ~/.gitignore
 
 echo "Symlinking mise config"
 $dry mkdir -p ~/.config/mise
+# Remove existing file/symlink first (sudo in case it's root-owned from a prior sudo run)
+$dry sudo rm -f ~/.config/mise/config.toml
 $dry ln -sf ~/Configuration-Files/mise.toml ~/.config/mise/config.toml
