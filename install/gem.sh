@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-# Use mise's ruby explicitly rather than relying on PATH or mise exec
-MISE_BIN="${MISE_BIN:-/opt/homebrew/bin/mise}"
-if RUBY_PATH=$("$MISE_BIN" which ruby 2>/dev/null); then
-    export PATH="$(dirname "$RUBY_PATH"):$PATH"
+# Find mise-installed ruby directly from the install directory
+RUBY_VERSION=$(ls "$HOME/.local/share/mise/installs/ruby/" 2>/dev/null | sort -V | tail -1)
+if [ -n "$RUBY_VERSION" ]; then
+    export PATH="$HOME/.local/share/mise/installs/ruby/$RUBY_VERSION/bin:$PATH"
+    echo "Using mise ruby $RUBY_VERSION at $(which ruby)"
 else
-    echo "Warning: mise ruby not found, using system ruby ($(ruby --version))"
+    echo "Warning: mise ruby not found, using system ruby"
 fi
-
-echo "Using ruby: $(ruby --version) at $(which ruby)"
 
 packages=$(<data/gems.txt)
 

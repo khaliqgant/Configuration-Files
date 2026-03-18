@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-export PATH="$HOME/.local/share/mise/shims:$PATH"
+PYTHON_VERSION=$(ls "$HOME/.local/share/mise/installs/python/" 2>/dev/null | sort -V | tail -1)
+if [ -n "$PYTHON_VERSION" ]; then
+    export PATH="$HOME/.local/share/mise/installs/python/$PYTHON_VERSION/bin:$PATH"
+fi
 
 $dry python3 -m ensurepip --upgrade 2>/dev/null
 packages=$(<data/pips.txt)
