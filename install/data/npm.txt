@@ -6,6 +6,6 @@ prettier
 prpm
 fx
 mintlify
-localtunnell
+localtunnel
 ttab
 openclaw

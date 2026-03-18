@@ -8,6 +8,6 @@ do
     if python3 -m pip show "$package" &>/dev/null; then
         echo "$package already installed, skipping"
     else
-        $dry python3 -m pip install "$package"
+        $dry python3 -m pip install --break-system-packages "$package"
     fi
 done
