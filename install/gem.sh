@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+eval "$(mise activate bash)"
+
 packages=$(<data/gems.txt)
 
 for package in $packages
