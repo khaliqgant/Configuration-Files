@@ -28,6 +28,13 @@ else
     $dry bash -c 'curl -fsSL https://cli.kiro.dev/install | bash'
 fi
 
+echo "Installing Bun"
+if command -v bun >/dev/null 2>&1; then
+    echo "bun already installed, skipping"
+else
+    $dry bash -c 'curl -fsSL https://bun.sh/install | bash'
+fi
+
 echo "Setting up OpenClaw gateway as launchd service"
 PLIST_SRC=~/Configuration-Files/install/config/com.openclaw.gateway.plist
 PLIST_DST=~/Library/LaunchAgents/com.openclaw.gateway.plist
