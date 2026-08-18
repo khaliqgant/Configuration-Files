@@ -9,11 +9,22 @@ LABEL="com.khaliqgant.aw-disk-cleanup"
 BIN="$HOME/.local/bin/aw-disk-cleanup.sh"
 PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
 LOG="$HOME/Library/Logs/aw-disk-cleanup.log"
-HOUR=13
+HOURS=(9 13 17 21)
 MINUTE=0
 
 mkdir -p "$HOME/.local/bin" "$HOME/Library/LaunchAgents" "$HOME/Library/Logs"
 install -m 0755 "$SRC_DIR/aw-disk-cleanup.sh" "$BIN"
+
+INTERVALS=""
+for HOUR in "${HOURS[@]}"; do
+    INTERVALS+="        <dict>
+            <key>Hour</key>
+            <integer>$HOUR</integer>
+            <key>Minute</key>
+            <integer>$MINUTE</integer>
+        </dict>
+"
+done
 
 cat > "$PLIST" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
@@ -28,12 +39,8 @@ cat > "$PLIST" <<PLIST
         <string>$BIN</string>
     </array>
     <key>StartCalendarInterval</key>
-    <dict>
-        <key>Hour</key>
-        <integer>$HOUR</integer>
-        <key>Minute</key>
-        <integer>$MINUTE</integer>
-    </dict>
+    <array>
+$INTERVALS    </array>
     <key>RunAtLoad</key>
     <false/>
     <key>StandardOutPath</key>
@@ -47,7 +54,11 @@ PLIST
 launchctl bootout "gui/$(id -u)/$LABEL" 2>/dev/null || true
 launchctl bootstrap "gui/$(id -u)" "$PLIST"
 
-echo "Installed $LABEL on $(hostname -s) — daily $(printf '%02d:%02d' "$HOUR" "$MINUTE")"
+TIMES=""
+for HOUR in "${HOURS[@]}"; do
+    TIMES+="$(printf '%02d:%02d' "$HOUR" "$MINUTE") "
+done
+echo "Installed $LABEL on $(hostname -s) — daily at $TIMES"
 echo "  script: $BIN"
 echo "  plist:  $PLIST"
 echo "  log:    $LOG"

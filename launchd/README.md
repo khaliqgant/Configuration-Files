@@ -2,8 +2,9 @@
 
 ## aw-disk-cleanup
 
-Daily **safe** disk reclamation for the AgentWorkforce Macs. Runs every day at **13:00**
-via a per-user LaunchAgent.
+**Safe** disk reclamation for the AgentWorkforce Macs. Runs 4x/day at **09:00, 13:00, 17:00,
+21:00** via a per-user LaunchAgent (bumped from once-daily on 2026-08-18 — worktree backlog
+was outpacing a single daily run).
 
 **What it does (safe-only — never destroys uncommitted work):**
 1. `npm cache clean --force`
