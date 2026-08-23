@@ -39,12 +39,17 @@ if [ -d "$HOME/.cache/codex-runtimes" ]; then
   rm -rf "$HOME/.cache/codex-runtimes" && log "removed ~/.cache/codex-runtimes"
 fi
 
-# 3) NON-FORCE git worktree removal across every top-level clone in Projects.
+# 3) NON-FORCE git worktree removal across every clone in Projects (see below —
+#    owners are not always top-level).
 if [ -d "$PROJECTS" ]; then
   removed=0; skipped=0
-  for repo in "$PROJECTS"/*/; do
-    repo="${repo%/}"
-    [ -d "$repo/.git" ] || continue          # true clone only (.git dir, not a worktree file)
+  # Owners are any dir with a .git DIRECTORY (a true clone, not a worktree's .git
+  # file). They are NOT always top-level: a top-level dir can be a plain CONTAINER
+  # holding the real clone one or two levels down (e.g. relay/checkout, with 14
+  # worktrees hanging off it, or customer-agents/<repo>). An earlier version only
+  # checked "$PROJECTS"/*/.git and silently skipped every such owner — 36G of
+  # worktrees under one container had never been cleaned. Descend to depth 3.
+  while IFS= read -r repo; do
     while IFS= read -r wt; do
       [ -n "$wt" ] || continue
       case "$wt" in
@@ -60,7 +65,7 @@ if [ -d "$PROJECTS" ]; then
       fi
     done < <(git -C "$repo" worktree list --porcelain 2>/dev/null | awk '/^worktree /{print $2}')
     git -C "$repo" worktree prune >/dev/null 2>&1
-  done
+  done < <(find "$PROJECTS" -mindepth 2 -maxdepth 4 -type d -name .git -not -path '*/node_modules/*' 2>/dev/null | sed 's|/\.git$||')
   log "worktrees removed=$removed  skipped(dirty)=$skipped"
 fi
 

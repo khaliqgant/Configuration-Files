@@ -11,7 +11,11 @@ was outpacing a single daily run).
 2. `rm -rf ~/.npm/_npx` — the npx package cache, which `npm cache clean` does **not** touch
    and is usually the larger of the two (seen at 4.2G vs 125M for `_cacache`). Rebuildable.
 3. `rm -rf ~/.cache/codex-runtimes`
-4. NON-FORCE `git worktree remove` across every top-level clone in `~/Projects/AgentWorkforce`.
+4. NON-FORCE `git worktree remove` across every clone in `~/Projects/AgentWorkforce`.
+   Owners are found by searching for `.git` **directories** to depth 3 — they are *not*
+   always top-level. A top-level dir can be a plain container holding the real clone
+   below it (`relay/checkout`, `customer-agents/<repo>`); the old top-level-only check
+   silently skipped those, leaving 36G of worktrees under one container uncleaned.
    `git worktree remove` (no `--force`) refuses any worktree with tracked-modified or
    non-ignored-untracked files, so real work is preserved; removed worktrees keep their
    committed branch in the parent clone. Skips `/private/tmp` worktrees.
