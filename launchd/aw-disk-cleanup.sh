@@ -26,6 +26,14 @@ if command -v npm >/dev/null 2>&1; then
   npm cache clean --force >/dev/null 2>&1 && log "npm cache cleaned" || log "npm cache clean failed (skipped)"
 fi
 
+# 1b) npx package cache — NOT touched by `npm cache clean`, and the bigger of the
+# two in practice (seen at 4.2G while _cacache was only 125M). Fully rebuildable:
+# npx re-fetches each package on next use.
+if [ -d "$HOME/.npm/_npx" ]; then
+  npx_kib=$(du -sk "$HOME/.npm/_npx" 2>/dev/null | awk '{print $1}')
+  rm -rf "$HOME/.npm/_npx" && log "removed ~/.npm/_npx ($(human_gib "${npx_kib:-0}"))"
+fi
+
 # 2) codex runtimes cache (re-downloads on demand)
 if [ -d "$HOME/.cache/codex-runtimes" ]; then
   rm -rf "$HOME/.cache/codex-runtimes" && log "removed ~/.cache/codex-runtimes"
