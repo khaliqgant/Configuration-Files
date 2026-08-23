@@ -20,6 +20,14 @@ was outpacing a single daily run).
    non-ignored-untracked files, so real work is preserved; removed worktrees keep their
    committed branch in the parent clone. Skips `/private/tmp` worktrees.
 
+**Every fallible step runs under a wall-clock watchdog** (`run_limited`; macOS has no
+`timeout(1)` and the minis have no coreutils). This is not belt-and-braces: launchd will
+not start a job that is already running, so a single wedged step silently cancels every
+later scheduled run. finn-mini sat with `npm cache clean` hung for ~2 days that way and
+skipped ~8 cleanups, leaving no error in the log — only a start line with no matching
+done line. **To spot it: `grep -c 'start' log` vs `grep -c 'done' log` should match.**
+The worktree phase also has a 40-minute overall deadline and logs when it stops early.
+
 It deliberately does **not** delete `~/.agentworkforce/burn`, force-remove worktrees, or
 dedup session clones — those need a human.
 
