@@ -4,7 +4,9 @@
 # `git worktree remove` (no --force) refuses any worktree with tracked-modified
 # or non-ignored-untracked files, so uncommitted/untracked work is NEVER lost,
 # and every removed worktree's committed branch stays in its parent clone.
-# Installed + scheduled by install-aw-disk-cleanup.sh (launchd, daily 13:00).
+# Worktrees under /private/tmp are included, but only once idle for
+# TMP_MIN_AGE_H hours (default 12) — see the case arm below.
+# Installed + scheduled by install-aw-disk-cleanup.sh (launchd, 4x/day).
 set -uo pipefail
 
 # launchd runs with a minimal env — establish a usable PATH (incl. mise shims).
@@ -12,6 +14,8 @@ export PATH="$HOME/.local/share/mise/shims:/opt/homebrew/bin:/usr/local/bin:/usr
 
 PROJECTS="$HOME/Projects/AgentWorkforce"
 DATA_VOL="/System/Volumes/Data"
+# Minimum idle age before a /private/tmp worktree may be removed (hours).
+TMP_MIN_AGE_H="${TMP_MIN_AGE_H:-12}"
 
 log() { printf '%s  %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*"; }
 free_kib() { df -k "$DATA_VOL" | tail -1 | awk '{print $4}'; }
@@ -88,7 +92,25 @@ if [ -d "$PROJECTS" ]; then
       [ -n "$wt" ] || continue
       case "$wt" in
         "$repo") continue ;;                  # the main checkout itself
-        /private/tmp/*) continue ;;           # ephemeral / possibly-active sessions
+        /private/tmp/*)
+          # /private/tmp is where the bulk of reclaimable worktrees now live:
+          # agent task dirs (relay-*-MMDD, cloud-*, wt-*) and Claude Code
+          # scratchpad worktrees (/private/tmp/claude-501/<proj>/<session>/...).
+          # This used to be skipped wholesale as "ephemeral / possibly-active",
+          # which left the script unable to touch what became the DOMINANT source
+          # of growth — a manual pass on 2026-09-03 reclaimed 45G, and 19 of the
+          # 23 worktrees it removed were under /private/tmp that this script had
+          # walked straight past. Now allowed, but only once the worktree root has
+          # sat untouched for TMP_MIN_AGE_H hours, so an in-flight session is left
+          # alone. Two further guards still apply: non-force remove refuses any
+          # dirty worktree, and a live Claude agent worktree is LOCKED, which
+          # non-force remove also refuses on its own.
+          wt_mtime=$(stat -f %m "$wt" 2>/dev/null) || continue
+          if [ $(( ( $(date +%s) - wt_mtime ) / 3600 )) -lt "$TMP_MIN_AGE_H" ]; then
+            skipped=$((skipped+1))
+            continue
+          fi
+          ;;
       esac
       [ -d "$wt" ] || continue
       if [ "$(date +%s)" -ge "$wt_deadline" ]; then

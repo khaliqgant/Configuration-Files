@@ -18,7 +18,16 @@ was outpacing a single daily run).
    silently skipped those, leaving 36G of worktrees under one container uncleaned.
    `git worktree remove` (no `--force`) refuses any worktree with tracked-modified or
    non-ignored-untracked files, so real work is preserved; removed worktrees keep their
-   committed branch in the parent clone. Skips `/private/tmp` worktrees.
+   committed branch in the parent clone.
+
+   `/private/tmp` worktrees **are** included, but only once idle for `TMP_MIN_AGE_H`
+   hours (default 12; override via env). They were skipped wholesale until 2026-09-03
+   as "ephemeral / possibly-active" — but that is where agent task dirs and Claude Code
+   scratchpad worktrees now land, and it had become the dominant source of growth: a
+   manual pass reclaimed 45G, of which 19 of 23 removed worktrees sat under
+   `/private/tmp` that this script walked straight past. Three guards keep it safe:
+   the idle-age gate leaves in-flight sessions alone, non-force remove refuses dirty
+   worktrees, and a live Claude agent worktree is *locked*, which non-force also refuses.
 
 **Every fallible step runs under a wall-clock watchdog** (`run_limited`; macOS has no
 `timeout(1)` and the minis have no coreutils). This is not belt-and-braces: launchd will
