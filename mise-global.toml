@@ -8,6 +8,7 @@ node = "26.8.1"
 "npm:@xai-official/grok" = "latest"
 "npm:wrangler" = "latest"
 "npm:neonctl" = "latest"
+bun = "latest"
 
 [settings]
 trusted_config_paths = ["~/Projects/Configuration-Files"]
