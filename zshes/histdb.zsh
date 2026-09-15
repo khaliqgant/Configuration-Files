@@ -3,6 +3,13 @@
 source ~/Configuration-Files/zshes/vendor/sqlite-history.zsh
 source ~/Configuration-Files/zshes/vendor/history-timer.zsh
 #source ~/Configuration-Files/zshes/vendor/histdb-merge.zsh
+
+# _histdb_init normally only runs from zshaddhistory (after your first
+# command). Run it eagerly here so ~/.histdb exists before the autosuggest
+# strategies below can query it, otherwise the very first prompt in a fresh
+# shell fails with "unable to open database file".
+_histdb_init
+
 autoload -Uz add-zsh-hook
 add-zsh-hook preexec _start_timer
 add-zsh-hook precmd  _stop_timer
