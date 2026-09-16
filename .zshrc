@@ -52,6 +52,9 @@ source ~/Configuration-Files/zshes/path.zsh
 
 # load other functions
 source ~/Configuration-Files/zshes/functions/main.zsh
+#
+# load agent relay specific functions
+source ~/Configuration-Files/zshes/agent-relay.zsh
 
 # load in histdb
 source ~/Configuration-Files/zshes/histdb.zsh
