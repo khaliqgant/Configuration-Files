@@ -83,7 +83,14 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+for _zsh_syntax_highlighting in \
+  /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+do
+  [[ -f "$_zsh_syntax_highlighting" ]] && source "$_zsh_syntax_highlighting" && break
+done
+unset _zsh_syntax_highlighting
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
@@ -124,6 +131,6 @@ export PATH="$(npm config get prefix)/bin:$PATH"
 [[ -f $HOME/.daytona.completion_script.zsh ]] && source $HOME/.daytona.completion_script.zsh
 
 # OpenClaw Completion
-source "$HOME/.openclaw/completions/openclaw.zsh"
+[[ -f "$HOME/.openclaw/completions/openclaw.zsh" ]] && source "$HOME/.openclaw/completions/openclaw.zsh"
 [[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh
 eval "$(mise activate zsh)"
