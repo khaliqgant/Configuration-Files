@@ -30,6 +30,9 @@ o.bind("SUPER + SHIFT + C", "Browser", { omarchy = "browser" })
 -- Extra terminal shortcut alongside the default SUPER+RETURN.
 o.bind("SUPER + SHIFT + T", "Terminal", { omarchy = "terminal" })
 
+-- Extra 1Password shortcut alongside the default SUPER+SHIFT+SLASH.
+o.bind("SUPER + ALT + P", "Passwords", { omarchy = "1password" })
+
 -- Logitech MX Keys examples:
 -- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")
 -- o.bind("SUPER + H", nil, "voxtype record toggle")

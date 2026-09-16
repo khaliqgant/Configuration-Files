@@ -9,6 +9,7 @@ node = "26.8.1"
 "npm:wrangler" = "latest"
 "npm:neonctl" = "latest"
 bun = "latest"
+rust = "1.98.1"
 
 [settings]
 trusted_config_paths = ["~/Projects/Configuration-Files"]

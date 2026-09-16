@@ -134,3 +134,5 @@ export PATH="$(npm config get prefix)/bin:$PATH"
 [[ -f "$HOME/.openclaw/completions/openclaw.zsh" ]] && source "$HOME/.openclaw/completions/openclaw.zsh"
 [[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh
 eval "$(mise activate zsh)"
+
+source /home/khaliqgant/.daytona.completion_script.zsh
