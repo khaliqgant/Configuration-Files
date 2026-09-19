@@ -48,9 +48,9 @@ function perf {
 # conditionally load some google cloud stuff
 if [[ $HOSTNAME == "Khaliqs-MacBook-Pro.local" ]]; then
     # The next line updates PATH for the Google Cloud SDK.
-    source '/Users/khaliq/Development/google-cloud-sdk/path.zsh.inc'
+    [[ -f "$HOME/Development/google-cloud-sdk/path.zsh.inc" ]] && source "$HOME/Development/google-cloud-sdk/path.zsh.inc"
     # The next line enables shell command completion for gcloud.
-    source '/Users/khaliq/Development/google-cloud-sdk/completion.zsh.inc'
+    [[ -f "$HOME/Development/google-cloud-sdk/completion.zsh.inc" ]] && source "$HOME/Development/google-cloud-sdk/completion.zsh.inc"
 fi
 
 # load in local .bashrc.local if there
