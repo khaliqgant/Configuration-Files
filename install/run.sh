@@ -114,19 +114,16 @@ if should_run mackup; then
         echo "WARNING: Mackup folder not found at: $mackup_dir"
         echo "         Skipping mackup restore. Once it has synced, run: bash install/run.sh --from=mackup"
     else
-        # Pre-delete directories that mackup will replace with Dropbox symlinks.
-        # Python 3.14's shutil.rmtree has a macOS compatibility issue where it calls
-        # os.unlink() on directory entries (getting EPERM), so we remove them first
-        # with the shell's rm -rf which handles this correctly.
-        # Only do this if the storage actually holds .vim/bundle; otherwise
-        # mackup won't replace it and we'd just delete the installed plugins.
-        if [ -d "$mackup_dir/.vim/bundle" ] && [ -d ~/.vim/bundle ] && [ ! -L ~/.vim/bundle ]; then
-            echo "Removing ~/.vim/bundle before mackup restore (avoids Python 3.14 shutil bug)"
-            $dry chflags -R nouchg ~/.vim/bundle
-            $dry chmod -R u+w ~/.vim/bundle
-            $dry rm -rf ~/.vim/bundle
-        fi
-        $dry mackup restore
+        # Restore only these apps, not everything in .mackup.cfg. Restore is copy
+        # mode (it overwrites), and the full list includes .gitconfig, which is a
+        # symlink into this repo and would be clobbered by a stale copy, plus
+        # apps that are no longer installed. These hold what the repo can't:
+        # .netrc and .kube (credentials, so not in this public repo) and app
+        # settings. Deliberately excludes git, vim, zsh, ssh.
+        mackup_apps=(bettersnaptool curl docker fish kubectl tmux)
+        for app in "${mackup_apps[@]}"; do
+            $dry mackup restore "$app" || echo "WARNING: mackup restore $app failed, continuing"
+        done
     fi
 fi
 
