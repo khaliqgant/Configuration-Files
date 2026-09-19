@@ -54,8 +54,9 @@ if [[ $HOSTNAME == "Khaliqs-MacBook-Pro.local" ]]; then
 fi
 
 # load in local .bashrc.local if there
-alias bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && source $(find . -maxdepth 2 -name .bashrc-local) && echo 'local bashrc loaded'"
-alias show:bashrc="[ $(find . -maxdepth 2 -name .bashrc-local) ] && cat $(find . -maxdepth 2 -name .bashrc-local)"
+# single-quoted so find runs when the alias is used, not on every shell start
+alias bashrc='[ $(find . -maxdepth 2 -name .bashrc-local 2>/dev/null) ] && source $(find . -maxdepth 2 -name .bashrc-local 2>/dev/null) && echo "local bashrc loaded"'
+alias show:bashrc='[ $(find . -maxdepth 2 -name .bashrc-local 2>/dev/null) ] && cat $(find . -maxdepth 2 -name .bashrc-local 2>/dev/null)'
 
 # start up a bunch of apps by calling a script
 alias start="sh ~/Configuration-Files/scripts/start.sh"

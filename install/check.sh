@@ -335,7 +335,6 @@ if command -v brew >/dev/null 2>&1; then
     }
 
     check_service "mysql"
-    check_service "mailhog"
 else
     miss "Homebrew not available — cannot check services"
 fi

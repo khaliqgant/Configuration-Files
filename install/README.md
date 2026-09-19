@@ -43,7 +43,7 @@ Log out and back in (or restart) for all macOS defaults to take effect.
 * **Languages** - Node, Python, Ruby, Go, Rust via [mise](https://mise.jdx.dev/)
 * **Packages** - global npm, pip, and gem packages
 * **macOS** - dock, keyboard, trackpad, Finder, screenshot preferences
-* **Services** - MySQL, Mailhog
+* **Services** - MySQL
 * **Config sync** - mackup restore for app settings
 
 ## Re-running
