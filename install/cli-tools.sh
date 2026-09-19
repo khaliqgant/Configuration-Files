@@ -29,7 +29,10 @@ else
 fi
 
 echo "Installing Bun"
-if command -v bun >/dev/null 2>&1; then
+# This script's PATH has neither ~/.bun/bin nor the mise shims, so command -v
+# alone always missed an existing bun. Reinstalling is not harmless: the bun
+# installer appends another block to ~/.zshrc, which is a symlink into this repo.
+if command -v bun >/dev/null 2>&1 || [ -x "$HOME/.bun/bin/bun" ] || [ -x "$HOME/.local/share/mise/shims/bun" ]; then
     echo "bun already installed, skipping"
 else
     $dry bash -c 'curl -fsSL https://bun.sh/install | bash'

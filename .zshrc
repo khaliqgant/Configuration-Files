@@ -133,8 +133,6 @@ export PATH="$(npm config get prefix)/bin:$PATH"
 [[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh
 eval "$(mise activate zsh)"
 
-source /home/khaliqgant/.daytona.completion_script.zsh
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
