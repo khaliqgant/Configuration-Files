@@ -25,6 +25,17 @@ do
     fi;
 done
 
+# The tracked .mackup.cfg is a symlink into Dropbox with a hardcoded username in
+# its target (/Users/khaliq/...), so it dangles for any other user and the loop
+# above skips it. Link the config from wherever mackup's Dropbox storage is.
+if [[ ! -e ~/.mackup.cfg ]]; then
+    dropbox_path="$(python3 -c "import json,os; d=json.load(open(os.path.expanduser('~/.dropbox/info.json'))); print((d.get('personal') or d.get('business'))['path'])" 2>/dev/null)"
+    if [[ -n "$dropbox_path" && -f "$dropbox_path/Mackup/.mackup.cfg" ]]; then
+        echo "Linking ~/.mackup.cfg from $dropbox_path/Mackup"
+        $dry ln -sf "$dropbox_path/Mackup/.mackup.cfg" ~/.mackup.cfg
+    fi
+fi
+
 echo "Copying AWS creds"
 $dry ln -sf ~/Dropbox/"Khaliq Gant"/KJG/.aws ~/
 
