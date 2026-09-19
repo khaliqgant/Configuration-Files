@@ -34,15 +34,3 @@ if command -v bun >/dev/null 2>&1; then
 else
     $dry bash -c 'curl -fsSL https://bun.sh/install | bash'
 fi
-
-echo "Setting up OpenClaw gateway as launchd service"
-PLIST_SRC=~/Configuration-Files/install/config/com.openclaw.gateway.plist
-PLIST_DST=~/Library/LaunchAgents/com.openclaw.gateway.plist
-if [ -f "$PLIST_DST" ]; then
-    echo "openclaw launchd service already installed, skipping"
-else
-    $dry mkdir -p ~/Library/LaunchAgents
-    $dry ln -sf "$PLIST_SRC" "$PLIST_DST"
-    $dry launchctl load "$PLIST_DST"
-fi
-echo "Note: Run 'openclaw models auth login --provider openai-codex' to authenticate"

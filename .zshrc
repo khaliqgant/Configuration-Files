@@ -130,9 +130,11 @@ export PATH="$(npm config get prefix)/bin:$PATH"
 
 [[ -f $HOME/.daytona.completion_script.zsh ]] && source $HOME/.daytona.completion_script.zsh
 
-# OpenClaw Completion
-[[ -f "$HOME/.openclaw/completions/openclaw.zsh" ]] && source "$HOME/.openclaw/completions/openclaw.zsh"
 [[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh
 eval "$(mise activate zsh)"
 
 source /home/khaliqgant/.daytona.completion_script.zsh
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
