@@ -106,17 +106,26 @@ fi
 
 if should_run mackup; then
     echo "restoring mackup settings (before symlinks so dotfiles take priority)"
-    # Pre-delete directories that mackup will replace with Dropbox symlinks.
-    # Python 3.14's shutil.rmtree has a macOS compatibility issue where it calls
-    # os.unlink() on directory entries (getting EPERM), so we remove them first
-    # with the shell's rm -rf which handles this correctly.
-    if [ -d ~/.vim/bundle ] && [ ! -L ~/.vim/bundle ]; then
-        echo "Removing ~/.vim/bundle before mackup restore (avoids Python 3.14 shutil bug)"
-        $dry chflags -R nouchg ~/.vim/bundle
-        $dry chmod -R u+w ~/.vim/bundle
-        $dry rm -rf ~/.vim/bundle
+    # Mackup's Dropbox engine looks for <dropbox path>/Mackup. If that folder
+    # isn't synced, restore would abort (set -e) after we already deleted
+    # ~/.vim/bundle, so check first and skip the whole step instead.
+    mackup_dir="$(python3 -c "import json,os; d=json.load(open(os.path.expanduser('~/.dropbox/info.json'))); print((d.get('personal') or d.get('business'))['path'])" 2>/dev/null)/Mackup"
+    if [[ -z "$dry" && ! -d "$mackup_dir" ]]; then
+        echo "WARNING: Mackup folder not found at: $mackup_dir"
+        echo "         Skipping mackup restore. Once it has synced, run: bash install/run.sh --from=mackup"
+    else
+        # Pre-delete directories that mackup will replace with Dropbox symlinks.
+        # Python 3.14's shutil.rmtree has a macOS compatibility issue where it calls
+        # os.unlink() on directory entries (getting EPERM), so we remove them first
+        # with the shell's rm -rf which handles this correctly.
+        if [ -d ~/.vim/bundle ] && [ ! -L ~/.vim/bundle ]; then
+            echo "Removing ~/.vim/bundle before mackup restore (avoids Python 3.14 shutil bug)"
+            $dry chflags -R nouchg ~/.vim/bundle
+            $dry chmod -R u+w ~/.vim/bundle
+            $dry rm -rf ~/.vim/bundle
+        fi
+        $dry mackup restore
     fi
-    $dry mackup restore
 fi
 
 if should_run mise; then
