@@ -118,7 +118,9 @@ if should_run mackup; then
         # Python 3.14's shutil.rmtree has a macOS compatibility issue where it calls
         # os.unlink() on directory entries (getting EPERM), so we remove them first
         # with the shell's rm -rf which handles this correctly.
-        if [ -d ~/.vim/bundle ] && [ ! -L ~/.vim/bundle ]; then
+        # Only do this if the storage actually holds .vim/bundle; otherwise
+        # mackup won't replace it and we'd just delete the installed plugins.
+        if [ -d "$mackup_dir/.vim/bundle" ] && [ -d ~/.vim/bundle ] && [ ! -L ~/.vim/bundle ]; then
             echo "Removing ~/.vim/bundle before mackup restore (avoids Python 3.14 shutil bug)"
             $dry chflags -R nouchg ~/.vim/bundle
             $dry chmod -R u+w ~/.vim/bundle
