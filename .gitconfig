@@ -6,10 +6,18 @@
 	helper = osxkeychain
 
 [pull]
-	rebase = true
+	ff = only
 
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[safe]
+	directory = /var/folders/6d/0x5fkt8d01gfmmjdzkxqzwnh0000gn/T/proactive-checkout-cold-clone-eeA6TF/src/AgentWorkforce/cloud
