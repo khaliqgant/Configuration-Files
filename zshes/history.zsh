@@ -2,7 +2,13 @@ dropbox=~/Dropbox/"Khaliq Gant"/KJG/Computers
 historyL=$dropbox/.history
 
 # cp the history file from this comp to dropbox
-[[ -d "$historyL" ]] && cp ~/.zsh_history "$historyL"/"`hostname`"
+# retry on EINTR (SIGWINCH from the terminal attaching mid-syscall is common over SSH)
+if [[ -d "$historyL" ]]; then
+    for _i in 1 2 3; do
+        cp ~/.zsh_history "$historyL"/"`hostname`" 2>/dev/null && break
+    done
+    unset _i
+fi
 
 # now enable to search all histories, and use ack to do so
 all_history() {

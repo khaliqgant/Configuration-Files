@@ -106,8 +106,6 @@ if [ -f '$HOME/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/Downloa
 # The next line enables shell command completion for gcloud.
 if [ -f '$HOME/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
@@ -130,9 +128,15 @@ export PATH="$(npm config get prefix)/bin:$PATH"
 
 [[ -f $HOME/.daytona.completion_script.zsh ]] && source $HOME/.daytona.completion_script.zsh
 
-# OpenClaw Completion
-[[ -f "$HOME/.openclaw/completions/openclaw.zsh" ]] && source "$HOME/.openclaw/completions/openclaw.zsh"
 [[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh
 eval "$(mise activate zsh)"
 
-source /home/khaliqgant/.daytona.completion_script.zsh
+# opencode
+export PATH=/Users/khaliqgant/.opencode/bin:$PATH
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Superset CLI
+export PATH="/Users/khaliqgant/superset/bin:$PATH"
